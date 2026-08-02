@@ -1,0 +1,47 @@
+{
+  "id": "./",
+  "name": "Kaliber prisjakt",
+  "short_name": "Kaliber",
+  "description": "Hittar billigaste butiken för Kaliber Original — 10, 20 eller 30 dosor.",
+  "lang": "sv-SE",
+  "dir": "ltr",
+  "start_url": ".",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#F4EEDF",
+  "theme_color": "#F4EEDF",
+  "categories": ["shopping", "utilities"],
+  "prefer_related_applications": false,
+  "icons": [
+    {
+      "src": "icon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "maskable"
+    },
+    {
+      "src": "icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "maskable"
+    }
+  ]
+}

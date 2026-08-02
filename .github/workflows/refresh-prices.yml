@@ -1,0 +1,76 @@
+name: Uppdatera snuspriser
+
+# Hämtar färska Kaliber Original-priser och committar prices.json när något faktiskt ändrats.
+#
+# OBS: GitHub pausar schemalagda workflows i publika repon efter 60 dagars inaktivitet
+# (inga commits/inloggningar). Då slutar priserna uppdatera sig tyst. GitHub mejlar en
+# varning innan det händer — klicka "Enable workflow" i Actions-fliken, eller kör
+# "Run workflow" manuellt då och då, så räknas repot som aktivt igen.
+#
+# Sidan har dessutom ett eget skyddsnät: är prices.json äldre än 48 timmar skriver den
+# ut en varning på sidan, och äldre än 14 dagar märks priserna som gamla.
+
+on:
+  schedule:
+    - cron: '17 5,17 * * *'   # var 12:e timme (05:17 och 17:17 UTC)
+  workflow_dispatch:           # manuell knapp i Actions-fliken
+
+permissions:
+  contents: write              # räcker för commit+push med default GITHUB_TOKEN, ingen PAT
+
+concurrency:
+  group: refresh-prices
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Hämta repot
+        uses: actions/checkout@v4
+
+      - name: Sätt upp Node 24
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      - name: Hämta priser
+        id: fetch
+        run: node fetch-prices.mjs
+
+      - name: Committa prices.json om den ändrats
+        run: |
+          set -euo pipefail
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          # `git add` FÖRST: en otrackad prices.json (första körningen, eller om filen
+          # någon gång tappats i en commit) syns inte för `git diff` i arbetsträdet,
+          # och då hade steget rapporterat "inga ändringar" och aldrig committat.
+          git add prices.json .health
+          if git diff --cached --quiet -- prices.json .health; then
+            echo "Inga prisändringar — ingen commit."
+            exit 0
+          fi
+          git commit -m "priser: uppdaterade $(date -u '+%Y-%m-%d %H:%M') UTC"
+          # Rebase mot fjärren innan push — annars dör steget på vilken parallell
+          # commit som helst (set -e), och priserna slutar uppdateras tyst.
+          git pull --rebase origin "${GITHUB_REF_NAME}"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
+          echo "prices.json uppdaterad och pushad."
+
+      # Sist av allt, EFTER att de säkra priserna committats: fäll bygget om något är
+      # verkligt trasigt. GitHub mejlar då repo-ägaren automatiskt — det är hela larmet,
+      # inga webhooks att underhålla. Enstaka butiker som strular passerar tyst.
+      #
+      # Larmet går vid: för få butiker · ankarbutiken (snuslagret.se) oläsbar ·
+      # ett pris som hoppat mer än 40 % (troligen felavläst, utelämnas ur jämförelsen).
+      - name: Larma om skrapningen är trasig
+        if: steps.fetch.outputs.alarm == 'yes'
+        run: |
+          echo "::error::${{ steps.fetch.outputs.alarm_reason }}"
+          echo ""
+          echo "Sidan är INTE utan priser — misstänkta värden utelämnas och"
+          echo "senast korrekta priser ligger kvar. Men något behöver ses över."
+          exit 1

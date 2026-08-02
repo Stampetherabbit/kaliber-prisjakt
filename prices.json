@@ -1,0 +1,486 @@
+{
+  "fetched_at": "2026-08-02T13:10:07.792Z",
+  "product": {
+    "name": "Kaliber Original",
+    "spec": "18 g · 20 prillor · 7,5 mg/prilla",
+    "ean": "7311250449406"
+  },
+  "quantities": [
+    10,
+    20,
+    30
+  ],
+  "retailers": [
+    {
+      "retailer": "Snuslagret",
+      "domain": "snuslagret.se",
+      "url": "https://snuslagret.se/produkt/snus/portionssnus/kaliber-original/",
+      "cluster": "snushallen",
+      "cluster_primary": true,
+      "note": "Cluster-representant. Snuslagret/Billigsnus/Snusstocken = samma operatör (SKU 400940), identiska priser. Fri frakt redan från 49 kr.",
+      "trusted": true,
+      "ladder": [
+        {
+          "qty": 1,
+          "total": 29.9
+        },
+        {
+          "qty": 5,
+          "total": 119.9
+        },
+        {
+          "qty": 10,
+          "total": 219.9
+        },
+        {
+          "qty": 30,
+          "total": 649.9
+        },
+        {
+          "qty": 50,
+          "total": 1049.9
+        }
+      ],
+      "best": {
+        "10": {
+          "total": 219.9,
+          "perCan": 21.99,
+          "combo": "1 × 10-pack",
+          "cans": 10,
+          "exact": true
+        },
+        "20": {
+          "total": 439.8,
+          "perCan": 21.99,
+          "combo": "2 × 10-pack",
+          "cans": 20,
+          "exact": true
+        },
+        "30": {
+          "total": 649.9,
+          "perCan": 21.66,
+          "combo": "1 × 30-pack",
+          "cans": 30,
+          "exact": true
+        }
+      }
+    },
+    {
+      "retailer": "Billigsnus",
+      "domain": "billigsnus.se",
+      "url": "https://billigsnus.se/produkt/snus/portionssnus/kaliber-original/",
+      "cluster": "snushallen",
+      "note": "Samma operatör som Snuslagret — reserv om nummer ett är slut.",
+      "trusted": true,
+      "ladder": [
+        {
+          "qty": 10,
+          "total": 219.9
+        },
+        {
+          "qty": 30,
+          "total": 649.9
+        },
+        {
+          "qty": 50,
+          "total": 1049.9
+        }
+      ],
+      "best": {
+        "10": {
+          "total": 219.9,
+          "perCan": 21.99,
+          "combo": "1 × 10-pack",
+          "cans": 10,
+          "exact": true
+        },
+        "20": {
+          "total": 439.8,
+          "perCan": 21.99,
+          "combo": "2 × 10-pack",
+          "cans": 20,
+          "exact": true
+        },
+        "30": {
+          "total": 649.9,
+          "perCan": 21.66,
+          "combo": "1 × 30-pack",
+          "cans": 30,
+          "exact": true
+        }
+      }
+    },
+    {
+      "retailer": "Snusstocken",
+      "domain": "snusstocken.se",
+      "url": "https://snusstocken.se/produkt/snus/portionssnus/kaliber-original/",
+      "cluster": "snushallen",
+      "note": "Samma operatör som Snuslagret — reserv om nummer ett är slut.",
+      "trusted": true,
+      "ladder": [
+        {
+          "qty": 10,
+          "total": 219.9
+        },
+        {
+          "qty": 30,
+          "total": 649.9
+        },
+        {
+          "qty": 50,
+          "total": 1049.9
+        }
+      ],
+      "best": {
+        "10": {
+          "total": 219.9,
+          "perCan": 21.99,
+          "combo": "1 × 10-pack",
+          "cans": 10,
+          "exact": true
+        },
+        "20": {
+          "total": 439.8,
+          "perCan": 21.99,
+          "combo": "2 × 10-pack",
+          "cans": 20,
+          "exact": true
+        },
+        "30": {
+          "total": 649.9,
+          "perCan": 21.66,
+          "combo": "1 × 30-pack",
+          "cans": 30,
+          "exact": true
+        }
+      }
+    },
+    {
+      "retailer": "Snusvaror",
+      "domain": "snusvaror.se",
+      "url": "https://snusvaror.se/kaliber/kaliber-original-portion/",
+      "trusted": true,
+      "ladder": [
+        {
+          "qty": 1,
+          "total": 32
+        },
+        {
+          "qty": 10,
+          "total": 259
+        },
+        {
+          "qty": 30,
+          "total": 747
+        },
+        {
+          "qty": 50,
+          "total": 1235
+        }
+      ],
+      "best": {
+        "10": {
+          "total": 259,
+          "perCan": 25.9,
+          "combo": "1 × 10-pack",
+          "cans": 10,
+          "exact": true
+        },
+        "20": {
+          "total": 518,
+          "perCan": 25.9,
+          "combo": "2 × 10-pack",
+          "cans": 20,
+          "exact": true
+        },
+        "30": {
+          "total": 747,
+          "perCan": 24.9,
+          "combo": "1 × 30-pack",
+          "cans": 30,
+          "exact": true
+        }
+      }
+    },
+    {
+      "retailer": "iSnus",
+      "domain": "isnus.se",
+      "url": "https://isnus.se/produkt/kaliber-original-portionssnus/",
+      "note": "30-pack är dyrare än 3 × 10-pack — DP-beräkningen fångar det.",
+      "trusted": true,
+      "ladder": [
+        {
+          "qty": 1,
+          "total": 32
+        },
+        {
+          "qty": 10,
+          "total": 259
+        },
+        {
+          "qty": 30,
+          "total": 779
+        },
+        {
+          "qty": 50,
+          "total": 1249
+        }
+      ],
+      "best": {
+        "10": {
+          "total": 259,
+          "perCan": 25.9,
+          "combo": "1 × 10-pack",
+          "cans": 10,
+          "exact": true
+        },
+        "20": {
+          "total": 518,
+          "perCan": 25.9,
+          "combo": "2 × 10-pack",
+          "cans": 20,
+          "exact": true
+        },
+        "30": {
+          "total": 777,
+          "perCan": 25.9,
+          "combo": "3 × 10-pack",
+          "cans": 30,
+          "exact": true
+        }
+      }
+    },
+    {
+      "retailer": "SnusKungen",
+      "domain": "snuskungen.se",
+      "url": "https://snuskungen.se/produkt/kaliber-original-portion/",
+      "trusted": true,
+      "ladder": [
+        {
+          "qty": 1,
+          "total": 33.49
+        },
+        {
+          "qty": 3,
+          "total": 100
+        },
+        {
+          "qty": 5,
+          "total": 150
+        },
+        {
+          "qty": 10,
+          "total": 274.9
+        },
+        {
+          "qty": 30,
+          "total": 799.9
+        }
+      ],
+      "best": {
+        "10": {
+          "total": 274.9,
+          "perCan": 27.49,
+          "combo": "1 × 10-pack",
+          "cans": 10,
+          "exact": true
+        },
+        "20": {
+          "total": 549.8,
+          "perCan": 27.49,
+          "combo": "2 × 10-pack",
+          "cans": 20,
+          "exact": true
+        },
+        "30": {
+          "total": 799.9,
+          "perCan": 26.66,
+          "combo": "1 × 30-pack",
+          "cans": 30,
+          "exact": true
+        }
+      }
+    },
+    {
+      "retailer": "Tobax",
+      "domain": "tobax.se",
+      "url": "https://tobax.se/products/kaliber-original-1",
+      "trusted": true,
+      "ladder": [
+        {
+          "qty": 1,
+          "total": 33
+        },
+        {
+          "qty": 5,
+          "total": 145
+        },
+        {
+          "qty": 10,
+          "total": 279
+        },
+        {
+          "qty": 30,
+          "total": 825
+        }
+      ],
+      "best": {
+        "10": {
+          "total": 279,
+          "perCan": 27.9,
+          "combo": "1 × 10-pack",
+          "cans": 10,
+          "exact": true
+        },
+        "20": {
+          "total": 558,
+          "perCan": 27.9,
+          "combo": "2 × 10-pack",
+          "cans": 20,
+          "exact": true
+        },
+        "30": {
+          "total": 825,
+          "perCan": 27.5,
+          "combo": "1 × 30-pack",
+          "cans": 30,
+          "exact": true
+        }
+      }
+    },
+    {
+      "retailer": "Snushandel",
+      "domain": "snushandel.se",
+      "url": "https://www.snushandel.se/produkt/kaliber-original-portionssnus-2/",
+      "note": "Ingen volymrabatt.",
+      "trusted": true,
+      "ladder": [
+        {
+          "qty": 1,
+          "total": 32
+        },
+        {
+          "qty": 10,
+          "total": 279
+        }
+      ],
+      "best": {
+        "10": {
+          "total": 279,
+          "perCan": 27.9,
+          "combo": "1 × 10-pack",
+          "cans": 10,
+          "exact": true
+        },
+        "20": {
+          "total": 558,
+          "perCan": 27.9,
+          "combo": "2 × 10-pack",
+          "cans": 20,
+          "exact": true
+        },
+        "30": {
+          "total": 837,
+          "perCan": 27.9,
+          "combo": "3 × 10-pack",
+          "cans": 30,
+          "exact": true
+        }
+      }
+    }
+  ],
+  "unparsed": [
+    "snusvaruhuset.se",
+    "snussidan.se",
+    "snuset.se",
+    "gonic.se",
+    "swedishmatch.se",
+    "snusbolaget.se",
+    "nettotobak.com",
+    "mathem.se",
+    "willys.se",
+    "citygross.se",
+    "netsnus.se",
+    "coop.se",
+    "tobaksgrossisten.se",
+    "nikoteket.se",
+    "hemkop.se",
+    "snusfabriken.com",
+    "snusexpress.se",
+    "snusdirect.com"
+  ],
+  "skipped": [
+    {
+      "domain": "snusvaruhuset.se",
+      "reason": "Prisstegen renderas av JavaScript — läsbar bara i webbläsare."
+    },
+    {
+      "domain": "snussidan.se",
+      "reason": "Ingen läsbar prisstege i sidans HTML."
+    },
+    {
+      "domain": "snuset.se",
+      "reason": "Bara löspris utan paketkontext (JSON-LD: 29.9 kr) — går inte att räkna volympris på."
+    },
+    {
+      "domain": "gonic.se",
+      "reason": "Ingen läsbar prisstege i sidans HTML."
+    },
+    {
+      "domain": "swedishmatch.se",
+      "reason": "Bara löspris utan paketkontext (JSON-LD: 269 kr) — går inte att räkna volympris på."
+    },
+    {
+      "domain": "snusbolaget.se",
+      "reason": "Ingen läsbar prisstege i sidans HTML."
+    },
+    {
+      "domain": "nettotobak.com",
+      "reason": "Ingen läsbar prisstege i sidans HTML."
+    },
+    {
+      "domain": "mathem.se",
+      "reason": "Bara löspris utan paketkontext (JSON-LD: 259 kr) — går inte att räkna volympris på."
+    },
+    {
+      "domain": "willys.se",
+      "reason": "Sidans titel handlar inte om Kaliber (\"Willys\") — URL:en har troligen flyttat."
+    },
+    {
+      "domain": "citygross.se",
+      "reason": "Sidan nämner inte Kaliber — kan vara fel vara eller flyttad URL."
+    },
+    {
+      "domain": "netsnus.se",
+      "reason": "Bara löspris utan paketkontext (JSON-LD: 279 kr) — går inte att räkna volympris på."
+    },
+    {
+      "domain": "coop.se",
+      "reason": "Sidan nämner inte Kaliber — kan vara fel vara eller flyttad URL."
+    },
+    {
+      "domain": "tobaksgrossisten.se",
+      "reason": "Ingen läsbar prisstege i sidans HTML."
+    },
+    {
+      "domain": "nikoteket.se",
+      "reason": "Bara löspris utan paketkontext (JSON-LD: 39, 149, 289 kr) — går inte att räkna volympris på."
+    },
+    {
+      "domain": "hemkop.se",
+      "reason": "Sidans titel handlar inte om Kaliber (\"Vi skapar matglädje varje dag | Hemköp\") — URL:en har troligen flyttat."
+    },
+    {
+      "domain": "snusfabriken.com",
+      "reason": "Ingen läsbar prisstege i sidans HTML."
+    },
+    {
+      "domain": "snusexpress.se",
+      "reason": "Sidan nämner inte Kaliber — kan vara fel vara eller flyttad URL."
+    },
+    {
+      "domain": "snusdirect.com",
+      "reason": "Ingen läsbar prisstege i sidans HTML."
+    }
+  ]
+}

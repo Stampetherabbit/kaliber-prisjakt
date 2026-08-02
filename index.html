@@ -1,0 +1,903 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kaliber Original — var är det billigast idag?</title>
+<meta name="description" content="Dagens pris på Kaliber Original hos svenska snusbutiker. Visar var det är billigast per dosa.">
+<meta name="theme-color" content="#F4EEDF" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#12100C" media="(prefers-color-scheme: dark)">
+<meta name="application-name" content="Kaliber">
+<meta name="apple-mobile-web-app-title" content="Kaliber">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="color-scheme" content="light dark">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="alternate icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><rect width='512' height='512' rx='112' fill='%2314513B'/><circle cx='256' cy='256' r='192' fill='%23E3D8BC'/><circle cx='256' cy='256' r='162' fill='%23CBBB97'/><circle cx='256' cy='256' r='132' fill='%23FBF7EC'/><path d='M176 212 L336 212 L256 304 Z' fill='%2314513B' stroke='%2314513B' stroke-width='28' stroke-linejoin='round'/></svg>">
+<link rel="icon" type="image/svg+xml" href="icon.svg">
+<link rel="manifest" href="manifest.webmanifest">
+
+<style>
+/* ─────────────────────────────────────────────────────────────
+   Kaliber-priser · gränssnitt
+
+   Värld:   tobakshandelns disk — obleket kartongpapper, pennbläck,
+            diskens gröna filt (samma gröna som appikonen).
+   Signatur: kassarullens perforering. Den delar av prislappen,
+            skiljer reservbutikerna åt, ramar in sidan — och fylls
+            med bläck som laddningsindikator när priserna hämtas.
+   Djup:    enbart linjer + ytnyanser. Exakt EN upphöjd yta: vinnaren.
+   Kontrast: all text ≥ 7:1 (WCAG AAA). Minsta textstorlek 16 px.
+            Ramar och avdelare som bär betydelse ≥ 3:1 (WCAG 1.4.11).
+   Accent:  en enda — filtgrönt. Den betyder alltid "hit ska du".
+   ───────────────────────────────────────────────────────────── */
+
+:root{
+  font-size:125%;              /* 1rem = 20px, skalar med användarens egen textstorlek */
+  color-scheme:light dark;
+
+  /* Ytor — samma kulör hela vägen, bara ljusare för varje nivå */
+  --paper:     #F4EEDF;        /* sidan */
+  --card:      #FBF7EC;        /* nivå 1 */
+  --card-up:   #FFFDF7;        /* nivå 2 — bara vinnaren bor här */
+
+  /* Bläck */
+  --ink:       #1C1A14;        /* 15,1:1 */
+  --ink-2:     #4A452F;        /*  8,3:1 */
+  --ink-3:     #524C36;        /*  7,4:1 */
+
+  /* Diskens filt — enda accenten */
+  --felt:      #14513B;        /*  7,9:1 */
+  --felt-deep: #0E3F2D;
+  --on-felt:   #FBF7EC;        /*  8,5:1 mot filten */
+  --fill:      var(--felt);    /* laddningsindikatorns bläck */
+
+  /* Linjer som BÄR BETYDELSE (knappramar, radavdelare i reservlistan).
+     .55 mot papperet ger 3,7:1 — över 1.4.11-kravet på 3:1. En okryssad
+     antal-knapp har nästan samma fyllning som sidan, så ramen är hela
+     beviset på att den går att trycka på; den får inte vara svag. */
+  --rule-firm: rgba(28,26,20,.55);
+  /* Rent dekorativ perforering — ingen betydelse, inget kontrastkrav. */
+  --perf:      #C3B18A;
+
+  --lift:    0 1px 0 rgba(28,26,20,.05), 0 14px 28px -18px rgba(40,34,14,.45);
+  --lift-hi: 0 1px 0 rgba(28,26,20,.05), 0 20px 34px -18px rgba(40,34,14,.50);
+
+  --r-s:.4rem; --r-m:.7rem;
+  --serif:Georgia,'Iowan Old Style','Palatino Linotype',Palatino,'Times New Roman',serif;
+  --sans:-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,sans-serif;
+
+  --pad-x:.9rem;               /* sidans marginal, krymper på riktigt smala skärmar */
+  --pad-card:1.2rem;
+}
+
+@media (prefers-color-scheme:dark){
+  :root{
+    --paper:#12100C; --card:#1A1712; --card-up:#221E17;
+    --ink:#F5EFE0; --ink-2:#D3CBB4; --ink-3:#B3AB92;
+    --felt:#6FC79A; --felt-deep:#95DCB8; --on-felt:#12100C;
+    --fill:#95DCB8;                     /* 3,7:1 mot perforeringens spår */
+    --rule-firm:rgba(245,239,224,.42);  /* 3,7:1 mot både sida och kort */
+    --perf:#6D6450;
+    --lift:0 0 0 1px rgba(245,239,224,.09), 0 14px 28px -18px rgba(0,0,0,.8);
+    --lift-hi:0 0 0 1px rgba(245,239,224,.14), 0 20px 34px -18px rgba(0,0,0,.9);
+  }
+}
+
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none !important}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;padding:1.4rem var(--pad-x) 2.4rem;
+  background:var(--paper);color:var(--ink);
+  font:400 1rem/1.55 var(--sans);
+  overflow-wrap:break-word;
+}
+.sheet{max-width:31rem;margin:0 auto}
+button{font:inherit;touch-action:manipulation}
+a{touch-action:manipulation}
+
+:focus-visible{outline:3px solid var(--ink);outline-offset:3px;border-radius:.25rem}
+:focus:not(:focus-visible){outline:none}
+.sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+
+/* Signaturen: kassarullens avrivningslinje (dekor) */
+.perf{height:0;border:0;border-top:2px dotted var(--perf);margin:1.4rem 0}
+
+/* ── Huvudet ──────────────────────────────────────────── */
+.masthead{display:flex;gap:.9rem;align-items:flex-start;margin:0 auto 1.1rem;max-width:31rem}
+.mark{flex:0 0 auto;width:3.1rem;height:3.1rem;display:block}
+h1{margin:.1rem 0 0;font:700 clamp(1.85rem,7.5vw,2.35rem)/1.12 var(--serif);letter-spacing:-.012em}
+.ask{margin:.3rem 0 0;font:400 clamp(1.05rem,4.2vw,1.2rem)/1.3 var(--serif);color:var(--ink-2)}
+.spec{margin:.55rem 0 0;font-size:.9rem;line-height:1.4;color:var(--ink-3);letter-spacing:.015em}
+
+/* ── Sektioner ────────────────────────────────────────── */
+section{margin:0 0 1.5rem}
+h2{margin:0 0 .7rem;font:600 1.1rem/1.3 var(--sans);color:var(--ink-2)}
+
+/* ── Antal dosor ──────────────────────────────────────── */
+.qty{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem}
+.qty-btn{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  min-height:4.1rem;padding:.55rem .25rem;
+  background:var(--card);color:var(--ink);
+  border:2px solid var(--rule-firm);border-radius:var(--r-m);
+  cursor:pointer;transition:background .16s ease,border-color .16s ease,transform .12s ease;
+}
+.qty-num{font:700 1.75rem/1 var(--serif);letter-spacing:-.01em}
+.qty-unit{font-size:.85rem;font-weight:500;color:var(--ink-3);margin-top:.1rem}
+@media (hover:hover){.qty-btn:hover{border-color:var(--ink);background:var(--card-up)}}
+.qty-btn:active{transform:translateY(1px)}
+.qty-btn[aria-pressed="true"]{background:var(--felt);border-color:var(--felt);color:var(--on-felt)}
+.qty-btn[aria-pressed="true"] .qty-unit{color:var(--on-felt)}
+.qty-btn[aria-pressed="true"]::after{        /* markering som inte bara är färg */
+  content:"";display:block;width:1.5rem;height:2px;margin-top:.32rem;
+  background:var(--on-felt);opacity:.85;
+}
+
+/* ── Hämta-knappen ────────────────────────────────────── */
+.action{
+  display:block;width:100%;min-height:4rem;padding:1rem 1.1rem;
+  background:var(--felt);color:var(--on-felt);
+  border:2px solid var(--felt);border-radius:var(--r-m);
+  font-size:1.3rem;font-weight:600;line-height:1.2;cursor:pointer;
+  transition:background .16s ease,border-color .16s ease,transform .12s ease;
+}
+@media (hover:hover){.action:hover{background:var(--felt-deep);border-color:var(--felt-deep);color:var(--on-felt)}}
+.action:active{transform:translateY(1px)}
+.action[aria-disabled="true"]{cursor:default;background:var(--felt-deep);border-color:var(--felt-deep)}
+
+.status{margin:.8rem 0 0;min-height:1.45em;font-size:1rem;line-height:1.45;color:var(--ink-2)}
+.status b{font-weight:600;color:var(--ink)}
+
+/* Marginalanteckning: när priserna inte kunde uppdateras, eller när sidan
+   behöver säga något ärligt. Ingen larmfärg — en lugn ton, som en notering
+   i kanten på ett kvitto. */
+.notice{
+  margin:.85rem 0 0;padding:.8rem .95rem;
+  background:var(--card);
+  border:2px solid var(--rule-firm);border-left:.35rem solid var(--ink-3);
+  border-radius:var(--r-s);
+  font-size:1rem;line-height:1.5;color:var(--ink-2);
+}
+.notice p{margin:0}
+.notice a{color:var(--felt);font-weight:600}
+
+/* Perforeringen fylls med bläck medan priserna hämtas */
+.progress{
+  margin-top:.7rem;height:.3rem;border-radius:999px;overflow:hidden;
+  background:repeating-linear-gradient(90deg,var(--perf) 0 4px,transparent 4px 9px);
+}
+.progress > i{display:block;height:100%;width:0;border-radius:999px;background:var(--fill);transition:width .5s ease}
+
+/* ── Vinnaren: prislappen ─────────────────────────────── */
+.tag{
+  display:block;padding:1.1rem var(--pad-card) 1.2rem;
+  background:var(--card-up);color:inherit;text-decoration:none;
+  border:2px solid var(--felt);border-radius:var(--r-m);
+  box-shadow:var(--lift);
+  transition:box-shadow .2s ease,transform .2s ease;
+}
+@media (hover:hover){.tag:hover{transform:translateY(-2px);box-shadow:var(--lift-hi)}}
+.tag:active{transform:translateY(0)}
+.tag.enter{animation:rise .52s cubic-bezier(.2,.75,.3,1) both}
+@keyframes rise{from{opacity:0;transform:translateY(14px) scale(.985)}to{opacity:1;transform:none}}
+
+.tag-top{display:flex;flex-wrap:wrap;gap:.35rem 1rem;align-items:baseline;justify-content:space-between}
+.eyebrow{font-size:.9rem;font-weight:600;letter-spacing:.05em;color:var(--felt)}
+.eyebrow.is-old{color:var(--ink-2)}
+.freshness{font-size:.85rem;font-weight:500;color:var(--ink-3);white-space:nowrap}
+
+.shop{display:block;margin:.45rem 0 .5rem;font:700 clamp(1.5rem,6vw,1.75rem)/1.15 var(--serif);letter-spacing:-.008em}
+.price{display:flex;flex-wrap:wrap;align-items:baseline;gap:.1rem .55rem}
+.price-num{font:700 clamp(3.6rem,15.5vw,5rem)/.95 var(--serif);letter-spacing:-.025em;color:var(--ink)}
+.price-unit{font-size:1.05rem;font-weight:600;line-height:1.2;color:var(--ink-2)}
+
+.lines{margin:0;font-size:1.05rem;line-height:1.5}
+.lines .row{display:flex;flex-wrap:wrap;gap:0 .5rem}
+.lines .k{color:var(--ink-3)}
+.lines .v{font-weight:600;color:var(--ink)}
+
+.cta{
+  display:flex;align-items:center;justify-content:space-between;gap:.8rem;
+  margin-top:1.05rem;padding:.95rem 1rem;border-radius:var(--r-s);
+  background:var(--felt);color:var(--on-felt);
+  font-size:1.2rem;font-weight:600;line-height:1.25;
+}
+.cta .arrow{font-size:1.4rem;line-height:1}
+.aside{margin:.8rem 0 0;font-size:1rem;line-height:1.5;color:var(--ink-2)}
+.aside:empty{margin:0}
+
+/* ── Reservbutikerna ──────────────────────────────────── */
+/* Avdelarna är enda gränsen mellan fyra separata tryckytor → komponentgräns,
+   inte dekor. Därför --rule-firm (3,7:1) och inte den bleka perforeringen. */
+.backups{margin:0;padding:0;list-style:none;border-top:2px dotted var(--rule-firm)}
+.backups li{border-bottom:2px dotted var(--rule-firm)}
+.backups li:last-child{border-bottom:0}   /* foten har redan sin egen avrivningslinje */
+.backups a{
+  display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:.1rem .8rem;
+  min-height:3.5rem;padding:.85rem .3rem;color:inherit;text-decoration:none;
+  transition:background .16s ease;
+}
+@media (hover:hover){.backups a:hover{background:var(--card)}}
+.backups a:active{background:var(--card)}
+.b-shop{font:700 1.1rem/1.3 var(--serif)}
+.b-price{font-size:1.15rem;font-weight:600;line-height:1.3;color:var(--ink);white-space:nowrap}
+.b-price .arrow{margin-left:.35rem;color:var(--felt)}
+.b-sub{flex:1 0 100%;font-size:.9rem;line-height:1.4;color:var(--ink-3)}
+
+/* ── Foten ────────────────────────────────────────────── */
+.colophon{margin:0 auto;max-width:31rem;font-size:.85rem;line-height:1.6;color:var(--ink-3)}
+.colophon p{margin:0 0 .5rem}
+.colophon p:last-child{margin:0}
+
+/* Mycket smal yta — t.ex. mobil vid 200 % zoom. Allt får plats på höjden
+   i stället för att tvinga fram sidled-scroll. Textstorlekarna hålls kvar.
+   OBS px och inte rem: rem i en media query löses alltid mot webbläsarens
+   grundstorlek (16 px), aldrig mot :root{font-size:125%} — 17rem hade tänt
+   först vid 272 px och lämnat bandet 272–340 px oskyddat. */
+@media (max-width:340px){
+  /* Prislappens 56 px är golv enligt tillgänglighetskravet och får inte krympa.
+     Alltså är det marginalerna som ger vika här — annars kolliderar kravet på
+     stor siffra med kravet på noll sidled-scroll vid 200 % zoom. */
+  :root{--pad-x:.35rem;--pad-card:.55rem}
+  /* Butiksnamn och priser i reservlistan får brytas var som helst hellre än
+     att spränga bredden. */
+  .backups a{overflow-wrap:anywhere;word-break:break-word}
+  .sheet,.backups,.backups li,.backups a{min-width:0}
+  .masthead{flex-direction:column;gap:.5rem}   /* märket över rubriken */
+  .masthead > div{min-width:0}                 /* låt rubriken brytas i stället för att spränga bredden */
+  .mark{width:2.6rem;height:2.6rem}
+  /* "Kaliber" är sidans bredaste odelbara ord. Vid 320 px-skärm i 200 % zoom
+     (= 160 px layoutbredd) är 1,85rem för brett och tvingar fram sidled-scroll.
+     Rubriken får krympa här — den är fortfarande störst på sidan. */
+  h1{font-size:clamp(1.45rem,9vw,1.85rem)}
+  .ask{font-size:clamp(1rem,5.5vw,1.15rem)}
+  .qty{grid-template-columns:minmax(0,1fr);gap:.5rem}   /* tre knappar på höjden */
+  .price-num{font-size:clamp(2.8rem,22vw,3.6rem)}
+  .b-price,.freshness{white-space:normal}
+  .backups a{flex-direction:column;align-items:flex-start;justify-content:center;gap:.15rem}
+  .b-shop,.b-price{min-width:0}
+  .cta{flex-wrap:wrap;gap:.35rem;padding:.85rem .7rem}
+  .cta > span:first-child{min-width:0}   /* låt "Beställ hos …" brytas, pilen stannar inne */
+}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none !important;transition:none !important}
+  .tag:hover{transform:none}
+}
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <svg class="mark" viewBox="0 0 512 512" aria-hidden="true" focusable="false">
+    <rect width="512" height="512" rx="112" fill="#14513B"/>
+    <circle cx="256" cy="256" r="192" fill="#E3D8BC"/>
+    <circle cx="256" cy="256" r="162" fill="#CBBB97"/>
+    <circle cx="256" cy="256" r="132" fill="#FBF7EC"/>
+    <path d="M176 212 L336 212 L256 304 Z" fill="#14513B" stroke="#14513B" stroke-width="28" stroke-linejoin="round"/>
+  </svg>
+  <div>
+    <h1>Kaliber Original</h1>
+    <p class="ask">Var är det billigast idag?</p>
+    <p class="spec" id="spec">18 g · 20 prillor · 7,5 mg per prilla</p>
+  </div>
+</header>
+
+<main class="sheet">
+
+  <hr class="perf">
+
+  <noscript>
+    <div class="notice">
+      <p>Den här sidan behöver JavaScript för att räkna ut var det är billigast.
+      Du kan gå direkt till
+      <a href="https://snuslagret.se/produkt/snus/portionssnus/kaliber-original/" target="_blank" rel="noopener">Snuslagret</a>,
+      som brukar ha det lägsta priset.</p>
+    </div>
+  </noscript>
+
+  <section aria-labelledby="qh">
+    <h2 id="qh">Hur många dosor?</h2>
+    <div class="qty" role="group" aria-labelledby="qh">
+      <button type="button" class="qty-btn" data-qty="10" aria-pressed="true" aria-label="10 dosor">
+        <span class="qty-num">10</span><span class="qty-unit">dosor</span>
+      </button>
+      <button type="button" class="qty-btn" data-qty="20" aria-pressed="false" aria-label="20 dosor">
+        <span class="qty-num">20</span><span class="qty-unit">dosor</span>
+      </button>
+      <button type="button" class="qty-btn" data-qty="30" aria-pressed="false" aria-label="30 dosor">
+        <span class="qty-num">30</span><span class="qty-unit">dosor</span>
+      </button>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="sr">Priserna</h2>
+    <button type="button" class="action" id="refresh">Hämta dagens priser</button>
+    <p class="status" id="status" role="status" aria-live="polite">Läser in priserna …</p>
+    <div class="progress" id="progress" hidden aria-hidden="true"><i id="progressBar"></i></div>
+    <div class="notice" id="notice" role="status" aria-live="polite" hidden><p id="noticeText"></p></div>
+  </section>
+
+  <section aria-labelledby="wh">
+    <h2 class="sr" id="wh">Billigast just nu</h2>
+
+    <a class="tag" id="winner" href="#" target="_blank" rel="noopener" hidden>
+      <span class="tag-top">
+        <span class="eyebrow" id="eyebrow">Billigast just nu</span>
+        <span class="freshness" id="freshness"></span>
+      </span>
+
+      <span class="shop" id="wShop"></span>
+
+      <span class="price">
+        <span class="price-num" id="wPer"></span>
+        <span class="price-unit">kr per dosa</span>
+      </span>
+
+      <hr class="perf">
+
+      <div class="lines">
+        <div class="row"><span class="k">Totalt</span><span class="v" id="wTotal"></span></div>
+        <div class="row"><span class="k">Lägg i varukorgen</span><span class="v" id="wCombo"></span></div>
+      </div>
+
+      <span class="cta"><span id="wCta">Beställ</span><span class="arrow" aria-hidden="true">→</span></span>
+    </a>
+
+    <p class="aside" id="aside" role="status"></p>
+  </section>
+
+  <section aria-labelledby="bh" id="backupSection" hidden>
+    <h2 id="bh">Om det är slut där</h2>
+    <ul class="backups" id="backups"></ul>
+  </section>
+
+  <hr class="perf">
+
+</main>
+
+<footer class="colophon">
+  <p>Priserna är utan frakt. Vid tio dosor eller fler brukar butikerna skicka fritt.</p>
+  <p>Gäller Kaliber Original i brun originalportion, 18 gram. Varunummer <span id="ean">7311250449406</span>.</p>
+  <p>Butikens sida öppnas i ett nytt fönster, så den här sidan ligger kvar.</p>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+
+  var QTYS = [10, 20, 30];              // aldrig 50 — tobaken hinner torka
+  var MAX_CANS = 30;                    // samma tak som hämtaren: fler dosor än så vill han aldrig ha hem
+  var LOAD_TIMEOUT = 6000;              // första inläsningen får inte hänga
+  var REFRESH_TIMEOUT = 12000;          // knappen får ta lite längre tid
+  var STALE_MS = 48 * 3600 * 1000;      // äldre än så → varna
+  var OLD_MS = 14 * 24 * 3600 * 1000;   // äldre än så → märk priset som gammalt
+
+  /* Sparad kopia, används bara om prices.json inte går att läsa.
+     Verifierad mot butikernas egna sidor 2026-08-02. */
+  var FALLBACK = {
+    fetched_at: '2026-08-02T11:04:05.454Z',
+    product: { name: 'Kaliber Original', spec: '18 g · 20 prillor · 7,5 mg/prilla', ean: '7311250449406' },
+    quantities: QTYS,
+    retailers: [
+      { retailer:'Snuslagret', domain:'snuslagret.se', url:'https://snuslagret.se/produkt/snus/portionssnus/kaliber-original/', trusted:true, cluster:'snushallen', cluster_primary:true,
+        ladder:[{qty:1,total:29.9},{qty:5,total:119.9},{qty:10,total:219.9},{qty:30,total:649.9},{qty:50,total:1049.9}] },
+      { retailer:'Billigsnus', domain:'billigsnus.se', url:'https://billigsnus.se/produkt/snus/portionssnus/kaliber-original/', trusted:true, cluster:'snushallen',
+        ladder:[{qty:10,total:219.9},{qty:30,total:649.9},{qty:50,total:1049.9}] },
+      { retailer:'Snusstocken', domain:'snusstocken.se', url:'https://snusstocken.se/produkt/snus/portionssnus/kaliber-original/', trusted:true, cluster:'snushallen',
+        ladder:[{qty:10,total:219.9},{qty:30,total:649.9},{qty:50,total:1049.9}] },
+      { retailer:'Snusvaror', domain:'snusvaror.se', url:'https://snusvaror.se/kaliber/kaliber-original-portion/', trusted:true,
+        ladder:[{qty:1,total:32},{qty:10,total:259},{qty:30,total:747},{qty:50,total:1235}] },
+      { retailer:'iSnus', domain:'isnus.se', url:'https://isnus.se/produkt/kaliber-original-portionssnus/', trusted:true,
+        ladder:[{qty:1,total:32},{qty:10,total:259},{qty:30,total:779},{qty:50,total:1249}] },
+      { retailer:'SnusKungen', domain:'snuskungen.se', url:'https://snuskungen.se/produkt/kaliber-original-portion/', trusted:true,
+        ladder:[{qty:1,total:33.49},{qty:3,total:100},{qty:5,total:150},{qty:10,total:274.9},{qty:30,total:799.9}] },
+      { retailer:'Tobax', domain:'tobax.se', url:'https://tobax.se/products/kaliber-original-1', trusted:true,
+        ladder:[{qty:1,total:33},{qty:5,total:145},{qty:10,total:279},{qty:30,total:825}] },
+      { retailer:'Snushandel', domain:'snushandel.se', url:'https://www.snushandel.se/produkt/kaliber-original-portionssnus-2/', trusted:true,
+        ladder:[{qty:1,total:32},{qty:10,total:279}] }
+    ]
+  };
+
+  function $(id) { return document.getElementById(id); }
+  var el = {
+    status:$('status'), progress:$('progress'), bar:$('progressBar'), refresh:$('refresh'),
+    winner:$('winner'), shop:$('wShop'), per:$('wPer'), total:$('wTotal'), combo:$('wCombo'),
+    cta:$('wCta'), fresh:$('freshness'), eyebrow:$('eyebrow'), aside:$('aside'),
+    backups:$('backups'), backupSection:$('backupSection'), spec:$('spec'), ean:$('ean'),
+    notice:$('notice'), noticeText:$('noticeText')
+  };
+
+  var state = { shops: [], qty: 10, stamp: null, busy: false };
+  var booted = false;      // har vi visat priser för honom än?
+  var touched = false;     // har han rört sidan? i så fall byt inte under fingrarna
+
+  /* Ett element med `hidden` är osynligt även för skärmläsaren, så texten måste
+     skrivas EFTER att rutan blivit synlig — annars sväljs uppdateringen av
+     live-regionen och han får aldrig veta att priserna är gamla. */
+  function note(text) {
+    if (text) {
+      el.notice.hidden = false;
+      requestAnimationFrame(function () { el.noticeText.textContent = text; });
+    } else {
+      el.noticeText.textContent = '';
+      el.notice.hidden = true;
+    }
+  }
+  var calm = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+
+  /* ── Svenska siffror och tider ─────────────────────────── */
+  function kr(n) { return n.toLocaleString('sv-SE', { minimumFractionDigits: 2, maximumFractionDigits: 2 }); }
+
+  function spoken(n) {                                   // för skärmläsare
+    var c = Math.round(n * 100), h = Math.floor(c / 100), o = c % 100;
+    return h + (o ? ' kronor och ' + o + ' öre' : ' kronor');
+  }
+  function midnight(d) { return new Date(d.getFullYear(), d.getMonth(), d.getDate()).getTime(); }
+  function dayMonth(d) { return d.toLocaleDateString('sv-SE', { day: 'numeric', month: 'long' }); }
+  function when(iso) {
+    var d = new Date(iso);
+    if (isNaN(d.getTime())) return 'okänd tid';
+    var now = new Date(), s = (now - d) / 1000;
+    if (s < 90) return 'nyss';
+    if (s < 3600) { var m = Math.round(s / 60); return 'för ' + m + (m === 1 ? ' minut' : ' minuter') + ' sedan'; }
+    if (s < 6 * 3600) { var t = Math.round(s / 3600); return t === 1 ? 'för en timme sedan' : 'för ' + t + ' timmar sedan'; }
+    var days = Math.round((midnight(now) - midnight(d)) / 86400000);
+    if (days <= 0) return d.getHours() < 11 ? 'i morse' : 'tidigare idag';
+    if (days === 1) return 'igår';
+    if (days < 7) return 'för ' + days + ' dagar sedan';
+    // Årtal när det börjar bli riktigt gammalt — annars läser ett år gammalt
+    // pris som "den 2 augusti" och ser färskt ut.
+    if (days > 180) return 'den ' + dayMonth(d) + ' ' + d.getFullYear();
+    return 'den ' + dayMonth(d);
+  }
+  function ageOf(iso) {
+    var d = new Date(iso);
+    if (isNaN(d.getTime())) return Infinity;
+    return Date.now() - d.getTime();
+  }
+
+  /* ── Billigaste kombinationen för N dosor ───────────────
+     Samma regel som fetch-prices.mjs: exakt antal om det går, men ett större
+     antal när det kostar FÄRRE kronor totalt (ett kampanjat 30-pack kan kosta
+     mindre än 2 × 10-pack) — alltså mer snus för mindre pengar, aldrig
+     "billigare per dosa men dyrare i kassan". Går exakt antal inte att pussla
+     ihop får butiken inget pris för det antalet alls. Taket MAX_CANS gör
+     dessutom ett 50-pack omöjligt: 50 köps aldrig, tobaken hinner torka. */
+  function comboText(counts) {
+    return Object.keys(counts).map(Number).sort(function (a, b) { return b - a; })
+      .map(function (q) {
+        var n = counts[q];
+        if (q === 1) return n === 1 ? '1 lös dosa' : n + ' lösa dosor';
+        return n + ' × ' + q + '-pack';
+      }).join(' + ');
+  }
+  function solve(ladder, target) {
+    var packs = (ladder || []).filter(function (p) { return p && p.qty >= 1 && p.total > 0; });
+    if (!packs.length) return null;
+
+    function run(n) {
+      var dp = [], from = [], i, j, p;
+      for (i = 0; i <= n; i++) { dp.push(Infinity); from.push(null); }
+      dp[0] = 0;
+      for (i = 1; i <= n; i++) {
+        for (j = 0; j < packs.length; j++) {
+          p = packs[j];
+          if (p.qty <= i && dp[i - p.qty] + p.total < dp[i] - 1e-9) { dp[i] = dp[i - p.qty] + p.total; from[i] = p; }
+        }
+      }
+      if (dp[n] === Infinity) return null;
+      var counts = {}, k = n, q;
+      while (k > 0) { q = from[k].qty; counts[q] = (counts[q] || 0) + 1; k -= q; }
+      return { total: Math.round(dp[n] * 100) / 100, counts: counts, cans: n };
+    }
+
+    var exact = run(target), over = null, n2, r;
+    if (!exact) return null;
+    for (n2 = target + 1; n2 <= MAX_CANS; n2++) {
+      r = run(n2);
+      if (!r || r.total >= exact.total - 1e-9) continue;
+      if (!over || r.total < over.total - 1e-9) over = r;
+    }
+    var win = over || exact;
+    return {
+      total: win.total,
+      perCan: Math.round((win.total / win.cans) * 100) / 100,
+      combo: comboText(win.counts),
+      cans: win.cans,
+      exact: win.cans === target
+    };
+  }
+
+  /* ── Läs butiksdata ────────────────────────────────────── */
+  function normalise(json) {
+    var out = [];
+    (json && json.retailers ? json.retailers : []).forEach(function (r) {
+      if (!r || r.trusted !== true || !r.url || !r.retailer) return;      // otrodd data rankas aldrig
+      var shop = {
+        name: r.retailer, url: r.url,
+        cluster: r.cluster || ('@' + (r.domain || r.retailer)),
+        primary: r.cluster_primary === true,
+        ladder: Array.isArray(r.ladder) ? r.ladder.slice() : [],
+        best: {}
+      };
+      QTYS.forEach(function (q) {
+        var g = r.best && r.best[String(q)];
+        // Sista spärren mot 50: skulle prisfilen någon gång innehålla ett förslag
+        // på fler dosor än han vill ha hem, räknar sidan om det själv i stället.
+        if (g && g.cans > MAX_CANS) g = null;
+        if (g && typeof g.total === 'number' && typeof g.perCan === 'number') {
+          shop.best[q] = {
+            total: g.total, perCan: g.perCan, combo: g.combo || '',
+            cans: g.cans || q,
+            exact: (typeof g.exact === 'boolean') ? g.exact : (g.cans ? g.cans === q : true)
+          };
+        } else {
+          var s = solve(shop.ladder, q);
+          if (s) shop.best[q] = s;
+        }
+      });
+      // Räcker att butiken klarar ETT av antalen — den syns då bara där.
+      // (Tidigare krävdes alla tre, vilket kunde kasta bort billigaste butiken.)
+      if (QTYS.some(function (q) { return shop.best[q]; })) out.push(shop);
+    });
+    return out;
+  }
+
+  /* ── Rangordning, en butik per kedja ─────────────────────
+     Snuslagret/Billigsnus/Snusstocken är samma operatör. Bara EN av dem får
+     synas i topplistan — annars ser listan ut som tre butiker som är en.
+     Representanten är den BILLIGASTE i kedjan (inte den utpekade huvudbutiken):
+     driftar priserna isär får ett lägre pris aldrig döljas bakom ett högre. */
+  function ranked(qty) {
+    var groups = {}, order = [];
+    state.shops.forEach(function (s) {
+      if (!s.best[qty]) return;
+      if (!groups[s.cluster]) { groups[s.cluster] = []; order.push(s.cluster); }
+      groups[s.cluster].push(s);
+    });
+    var reps = order.map(function (key) {
+      var members = groups[key].slice().sort(function (a, b) {
+        var d = a.best[qty].perCan - b.best[qty].perCan;
+        if (Math.abs(d) > 0.0001) return d;
+        d = a.best[qty].total - b.best[qty].total;
+        if (Math.abs(d) > 0.0001) return d;
+        return (b.primary ? 1 : 0) - (a.primary ? 1 : 0);   // lika pris → utpekad huvudbutik
+      });
+      var rep = members[0];
+      return { shop: rep, siblings: members.slice(1) };
+    });
+    reps.sort(function (a, b) {
+      var d = a.shop.best[qty].perCan - b.shop.best[qty].perCan;
+      return Math.abs(d) > 0.0001 ? d : a.shop.best[qty].total - b.shop.best[qty].total;
+    });
+    return reps;
+  }
+
+  /* ── Statusraden, utan innerHTML ───────────────────────── */
+  function strong(t) { return { strong: t }; }
+  function say() {
+    while (el.status.firstChild) el.status.removeChild(el.status.firstChild);
+    for (var i = 0; i < arguments.length; i++) {
+      var a = arguments[i];
+      if (a && a.strong !== undefined) {
+        var b = document.createElement('b'); b.textContent = a.strong; el.status.appendChild(b);
+      } else {
+        el.status.appendChild(document.createTextNode(String(a)));
+      }
+    }
+  }
+
+  /* ── Rita ──────────────────────────────────────────────── */
+  var counting = null, settle = null;
+  function clock() {
+    return (window.performance && performance.now) ? performance.now() : Date.now();
+  }
+  /* Räknar upp från noll — aldrig från ett tal som SER UT som ett pris.
+     En halv sekund av "13,63" på en prisjämförelse är ett tal han kan hinna
+     läsa och tro på. Noll kan ingen förväxla med dagens pris. */
+  function countTo(node, value) {
+    if (counting) { cancelAnimationFrame(counting); counting = null; }
+    if (settle) { clearTimeout(settle); settle = null; }
+    if (calm) { node.textContent = kr(value); return; }
+
+    var t0 = clock(), dur = 460;
+    // Räkna mot väggklockan, inte mot bildrutorna: en webbläsare som stryper
+    // animationen (bakgrundsflik, strömsparläge) får aldrig frysa siffran på
+    // ett halvvägs-tal. Priset måste alltid landa rätt.
+    function step() {
+      var p = Math.min(1, (clock() - t0) / dur), e = 1 - Math.pow(1 - p, 3);
+      node.textContent = kr(value * e);
+      counting = p < 1 ? requestAnimationFrame(step) : null;
+    }
+    counting = requestAnimationFrame(step);
+
+    settle = setTimeout(function () {                 // skyddsnät
+      if (counting) { cancelAnimationFrame(counting); counting = null; }
+      node.textContent = kr(value);
+      settle = null;
+    }, dur + 140);
+  }
+
+  function row(shopObj, qty) {                 // en reservrad
+    var r = shopObj, b = r.best[qty], cans = b.exact ? qty : b.cans;
+    var li = document.createElement('li');
+    var a = document.createElement('a');
+    a.href = r.url; a.target = '_blank'; a.rel = 'noopener';
+    // Namnet först — det är den synliga etiketten, och röststyrning ska träffa den.
+    a.setAttribute('aria-label', r.name + ' — ' + spoken(b.perCan) + ' per dosa. ' +
+      cans + ' dosor kostar ' + spoken(b.total) + '. Öppna butikens sida i ett nytt fönster.');
+
+    var name = document.createElement('span'); name.className = 'b-shop'; name.textContent = r.name;
+    var price = document.createElement('span'); price.className = 'b-price';
+    price.appendChild(document.createTextNode(kr(b.perCan) + ' kr/dosa'));
+    var arr = document.createElement('span'); arr.className = 'arrow'; arr.setAttribute('aria-hidden', 'true');
+    arr.textContent = '→'; price.appendChild(arr);
+    var sub = document.createElement('span'); sub.className = 'b-sub';
+    sub.textContent = kr(b.total) + ' kr för ' + cans + ' dosor' + (b.combo ? ' · ' + b.combo : '');
+
+    a.appendChild(name); a.appendChild(price); a.appendChild(sub);
+    li.appendChild(a);
+    return li;
+  }
+
+  function render(animate) {
+    var qty = state.qty, list = ranked(qty);
+    if (!list.length) {
+      el.winner.hidden = true; el.backupSection.hidden = true; el.aside.textContent = '';
+      return null;
+    }
+    el.winner.hidden = false;
+
+    var top = list[0], s = top.shop, b = s.best[qty], cans = b.exact ? qty : b.cans;
+    var old = ageOf(state.stamp) > OLD_MS;
+
+    el.shop.textContent = s.name;
+    el.total.textContent = kr(b.total) + ' kr för ' + cans + ' dosor';
+    el.combo.textContent = b.combo || (cans + ' dosor');
+    el.cta.textContent = 'Beställ hos ' + s.name;
+    el.winner.href = s.url;
+    // Börjar med den SYNLIGA knapptexten, så att röststyrning ("klicka Beställ hos
+    // Snuslagret") träffar länken — WCAG 2.5.3 Label in Name.
+    el.winner.setAttribute('aria-label',
+      'Beställ hos ' + s.name + ' — billigast just nu, ' + spoken(b.perCan) + ' per dosa. ' +
+      cans + ' dosor kostar ' + spoken(b.total) + '. ' +
+      (b.combo ? 'Du lägger ' + b.combo + ' i varukorgen. ' : '') +
+      'Öppna butikens sida i ett nytt fönster.');
+
+    el.eyebrow.textContent = old ? 'Billigast enligt gammalt pris' : 'Billigast just nu';
+    el.eyebrow.className = old ? 'eyebrow is-old' : 'eyebrow';
+    el.fresh.textContent = 'Kontrollerat ' + when(state.stamp);
+
+    countTo(el.per, b.perCan);
+
+    if (animate && !calm) {
+      el.winner.classList.remove('enter');
+      void el.winner.offsetWidth;                    // starta om animationen
+      el.winner.classList.add('enter');
+    }
+
+    var notes = [];
+    var same = [], other = [];
+    top.siblings.forEach(function (m) {
+      if (Math.abs(m.best[qty].perCan - b.perCan) < 0.005) same.push(m.name);
+      else other.push(m);
+    });
+    if (same.length) {
+      var joined = same.length > 1
+        ? same.slice(0, -1).join(', ') + ' och ' + same[same.length - 1]
+        : same[0];
+      notes.push(joined + ' är samma butik med samma pris — gå dit om ' + s.name + ' är slut.');
+    }
+    other.forEach(function (m) {
+      notes.push(m.name + ' är samma butikskedja men kostar ' + kr(m.best[qty].perCan) + ' kr per dosa.');
+    });
+    if (!b.exact) {
+      notes.push('Butiken säljer inte exakt ' + qty + ' dosor. Det blir ' + cans +
+                 ' stycken — och det blir ändå billigare totalt.');
+    }
+    el.aside.textContent = notes.join(' ');
+
+    /* Listan rivs och byggs om. Låg fokus i den (han tabbar sig neråt medan
+       priserna hämtas) skulle den annars kastas tillbaka till sidans topp. */
+    var links = el.backups.querySelectorAll('a');
+    var focusIdx = Array.prototype.indexOf.call(links, document.activeElement);
+
+    var rest = list.slice(1, 5);
+    while (el.backups.firstChild) el.backups.removeChild(el.backups.firstChild);
+    if (!rest.length) { el.backupSection.hidden = true; }
+    else {
+      el.backupSection.hidden = false;
+      rest.forEach(function (item) { el.backups.appendChild(row(item.shop, qty)); });
+      if (focusIdx > -1) {
+        var back = el.backups.querySelectorAll('a')[focusIdx];
+        if (back) back.focus();
+      }
+    }
+    return { name: s.name, perCan: b.perCan };
+  }
+
+  /* ── Hämta prisfilen ───────────────────────────────────
+     Priserna hämtas av en robot två gånger om dygnet och ligger färdigräknade
+     i prices.json. Sidan läser bara den filen. Att i stället låta besökarens
+     telefon skrapa sex butiker live genom en gratis mellanhand var både
+     långsamt och opålitligt (uppmätt: en av tre försök gick igenom, och den
+     som gick igenom tog nästan åtta sekunder) — han fick "kunde inte hämta"
+     varenda gång. En fil, ett anrop, alltid samma siffror som är verifierade. */
+  function withTimeout(promise, ms) {
+    return new Promise(function (resolve, reject) {
+      var done = false;
+      var timer = setTimeout(function () {
+        if (!done) { done = true; reject(new Error('timeout')); }
+      }, ms);
+      promise.then(function (v) {
+        if (done) return;
+        done = true; clearTimeout(timer); resolve(v);
+      }, function (e) {
+        if (done) return;
+        done = true; clearTimeout(timer); reject(e);
+      });
+    });
+  }
+  function loadPrices(ms) {
+    return withTimeout(
+      fetch('prices.json?t=' + Date.now(), { cache: 'no-store' })
+        .then(function (r) { if (!r.ok) throw new Error('saknas'); return r.json(); }),
+      ms
+    );
+  }
+
+  function refreshNow() {
+    if (state.busy) return;
+    state.busy = true;
+    el.refresh.setAttribute('aria-disabled', 'true');
+    el.refresh.textContent = 'Hämtar priser …';
+    say('Hämtar dagens priser. Det tar ett ögonblick.');
+    el.progress.hidden = false;
+    el.bar.style.width = '8%';
+    requestAnimationFrame(function () { el.bar.style.width = '75%'; });
+
+    function finish() {
+      el.bar.style.width = '100%';
+      state.busy = false;
+      el.refresh.removeAttribute('aria-disabled');
+      el.refresh.textContent = 'Hämta dagens priser';
+      setTimeout(function () { el.progress.hidden = true; }, 200);
+    }
+
+    loadPrices(REFRESH_TIMEOUT).then(function (json) {
+      var shops = normalise(json);
+      if (shops.length) {
+        state.shops = shops;
+        state.stamp = (json && json.fetched_at) || state.stamp;
+        applyProduct(json);
+      }
+      finish();
+      var w = render(true);
+      warn(json);
+      if (w) say('Klart. Billigast är ', strong(w.name), ' — ' + kr(w.perCan) + ' kr per dosa.');
+      else say('Klart, men inga priser gick att visa just nu.');
+    }, function () {
+      finish();
+      render(false);
+      say('Kunde inte hämta just nu. Visar priserna från ', strong(when(state.stamp)), '.');
+      note('Priserna kunde inte hämtas. Sidan visar de senast sparade, från ' + when(state.stamp) + '.');
+    });
+  }
+
+  /* ── Ärlighet om ålder ─────────────────────────────────
+     Slutar roboten köra (GitHub pausar schemalagda jobb efter 60 dagars
+     stiltje) fryser prisfilen med sin gamla tidsstämpel och UTAN varning.
+     Då renderar sidan som vanligt och han beställer efter ett gammalt pris.
+     Därför räknas åldern här, oavsett vad filen själv påstår. */
+  function warn(json, slow) {
+    var age = ageOf(state.stamp);
+    if (age > OLD_MS) {
+      note('Priserna har inte uppdaterats sedan ' + when(state.stamp) +
+           '. De stämmer förmodligen inte längre — kontrollera priset i butiken innan du beställer.');
+      return;
+    }
+    if (age > STALE_MS) {
+      note('Priserna kontrollerades senast ' + when(state.stamp) +
+           '. Kontrollera priset i butiken innan du beställer.');
+      return;
+    }
+    if (json && json.stale_warning) { note(String(json.stale_warning)); return; }
+    if (slow) { note('Priserna kunde inte läsas in just nu, så sidan visar de senast sparade. Tryck på knappen ovan för att försöka igen.'); return; }
+    note('');
+  }
+
+  function applyProduct(json) {
+    if (json && json.product) {
+      if (json.product.spec) el.spec.textContent = String(json.product.spec).replace('mg/prilla', 'mg per prilla');
+      if (json.product.ean) el.ean.textContent = json.product.ean;
+    }
+  }
+
+  /* ── Start ─────────────────────────────────────────────── */
+  function boot(json, slow) {
+    state.shops = normalise(json);
+    state.stamp = (json && json.fetched_at) || FALLBACK.fetched_at;
+    applyProduct(json);
+    if (!state.shops.length) {                       // tomt eller trasigt → sparad kopia
+      state.shops = normalise(FALLBACK);
+      state.stamp = FALLBACK.fetched_at;
+    }
+    booted = true;
+    render(true);
+    say('Senast kontrollerat ', strong(when(state.stamp)), '.');
+    warn(json, slow);
+  }
+
+  Array.prototype.forEach.call(document.querySelectorAll('.qty-btn'), function (btn) {
+    btn.addEventListener('click', function () {
+      var q = Number(btn.getAttribute('data-qty'));
+      touched = true;
+      if (q === state.qty) return;
+      state.qty = q;
+      Array.prototype.forEach.call(document.querySelectorAll('.qty-btn'), function (b) {
+        b.setAttribute('aria-pressed', b === btn ? 'true' : 'false');
+      });
+      var w = render(true);
+      if (w) say('Billigast för ' + q + ' dosor: ', strong(w.name), ' — ' + kr(w.perCan) + ' kr per dosa.');
+      else say('Ingen butik har ett pris för ' + q + ' dosor just nu.');
+    });
+  });
+
+  el.refresh.addEventListener('click', function () {
+    if (el.refresh.getAttribute('aria-disabled') === 'true') return;
+    touched = true;
+    refreshNow();
+  });
+
+  /* Sidan får aldrig hänga på "Läser in …". Går filen inte att läsa inom några
+     sekunder visas den sparade kopian i stället — hellre gårdagens korrekta pris
+     än en tom sida. Kommer filen fram efteråt uppgraderas priserna ändå. */
+  var lateTimer = setTimeout(function () {
+    lateTimer = null;
+    if (!booted) boot(FALLBACK, true);
+  }, LOAD_TIMEOUT);
+
+  loadPrices(LOAD_TIMEOUT + 9000)
+    .then(function (json) {
+      if (lateTimer) { clearTimeout(lateTimer); lateTimer = null; }
+      if (!booted) { boot(json); return; }
+      if (touched) {
+        /* Han har redan börjat trycka och vi visar reservkopian med en varning
+           som inte längre gäller. Byt in de riktiga priserna — men utan
+           inflygningsanimation, så det inte hoppar under fingrarna på honom. */
+        var shops = normalise(json);
+        if (!shops.length) return;
+        var keep = state.qty;
+        state.shops = shops;
+        state.stamp = (json && json.fetched_at) || state.stamp;
+        state.qty = keep;
+        applyProduct(json);
+        var w = render(false);
+        warn(json);
+        if (w) say('Priserna kom fram. Billigast är ', strong(w.name), ' — ' + kr(w.perCan) + ' kr per dosa.');
+        return;
+      }
+      boot(json);                          // hann fram sent, men han har inte rört något
+    })
+    .catch(function () {
+      if (lateTimer) { clearTimeout(lateTimer); lateTimer = null; }
+      if (!booted) boot(FALLBACK, true);
+    });
+
+  /* Ikonen på hemskärmen ska öppna appen även utan nät. Utan det här får han
+     webbläsarens felsida utan adressfält — och det sparade priset som ligger
+     inbakat i sidan blir oåtkomligt just när han behöver det. */
+  if ('serviceWorker' in navigator && location.protocol !== 'file:') {
+    window.addEventListener('load', function () {
+      navigator.serviceWorker.register('sw.js').catch(function () {});
+    });
+  }
+})();
+</script>
+</body>
+</html>

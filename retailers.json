@@ -1,0 +1,224 @@
+{
+  "product": {
+    "name": "Kaliber Original",
+    "brand": "Swedish Match",
+    "type": "portionssnus (tobak, brun originalportion)",
+    "format": "Large",
+    "spec": "18 g · 20 prillor · 7,5 mg/prilla",
+    "ean": "7311250449406",
+    "discriminator": "Large-format + 18 g + brun originalportion. INTE 'White Portion', INTE Lös/Slim, INTE annan Kaliber-smak.",
+    "reject_keywords": [
+      "white",
+      "vit",
+      "slim",
+      "lös",
+      "los",
+      "loose",
+      "mini",
+      "strong",
+      "stark",
+      "xrange",
+      "x-range",
+      "nikotinfri",
+      "all white"
+    ]
+  },
+  "meta": {
+    "purpose": "Butiksregister för fetch-prices.mjs. Priser bor i prices.json — aldrig här.",
+    "quantities": "UI:t visar bara 10/20/30 dosor. 50-pack får sparas i prisstegen men aldrig rankas eller rekommenderas.",
+    "cluster_regel": "Butiker med samma cluster är samma operatör med identiska priser. Visa bara EN av dem i topplistan — den första i clustret i listan nedan är representant (snushallen → Snuslagret, haypp → Snusbolaget). Övriga får nämnas som reserv.",
+    "frakt": "Frakt medvetet utelämnad — vid 10–30 dosor passeras alla fri-frakt-gränser ändå.",
+    "sakerhet": "Skrapa BARA öppna produktsidor (+ Shopify .js, publik produkt-endpoint). Extrahera ALDRIG en API-nyckel ur sajtens JavaScript för att fråga dess backend."
+  },
+  "retailers": [
+    {
+      "retailer": "Snuslagret",
+      "domain": "snuslagret.se",
+      "url": "https://snuslagret.se/produkt/snus/portionssnus/kaliber-original/",
+      "platform": "woocommerce",
+      "cluster": "snushallen",
+      "cluster_primary": true,
+      "note": "Cluster-representant. Snuslagret/Billigsnus/Snusstocken = samma operatör (SKU 400940), identiska priser. Fri frakt redan från 49 kr."
+    },
+    {
+      "retailer": "Billigsnus",
+      "domain": "billigsnus.se",
+      "url": "https://billigsnus.se/produkt/snus/portionssnus/kaliber-original/",
+      "platform": "woocommerce",
+      "cluster": "snushallen",
+      "note": "Samma operatör som Snuslagret — reserv om nummer ett är slut."
+    },
+    {
+      "retailer": "Snusstocken",
+      "domain": "snusstocken.se",
+      "url": "https://snusstocken.se/produkt/snus/portionssnus/kaliber-original/",
+      "platform": "woocommerce",
+      "cluster": "snushallen",
+      "note": "Samma operatör som Snuslagret — reserv om nummer ett är slut."
+    },
+    {
+      "retailer": "Snusvaruhuset",
+      "domain": "snusvaruhuset.se",
+      "url": "https://snusvaruhuset.se/sv/products/kaliber-original-portion",
+      "platform": "js-rendered",
+      "note": "Prisstegen renderas av JavaScript — går inte att läsa ur rå HTML. Hämtas inte automatiskt."
+    },
+    {
+      "retailer": "Snussidan",
+      "domain": "snussidan.se",
+      "url": "https://snussidan.se/varumarken/kaliber/kaliber-original/",
+      "platform": "woocommerce",
+      "note": "EGEN operatör — INTE snushallen-klustret. Stegen är 1/10:259/20:459/40/60, alltså 25,90 @10 mot klustrets 21,99, och ett äkta 20-pack. SKU 400940 är Swedish Match artikelnummer och står hos nästan alla butiker — det är inget operatörsbevis. Inget köpbart 50-pack (60-pack är toppsteget)."
+    },
+    {
+      "retailer": "Snuset",
+      "domain": "snuset.se",
+      "url": "https://snuset.se/produkt/kaliber-original-portionssnus/",
+      "platform": "woocommerce",
+      "note": "20-pack brukar vara billigast per dosa här."
+    },
+    {
+      "retailer": "Snusvaror",
+      "domain": "snusvaror.se",
+      "url": "https://snusvaror.se/kaliber/kaliber-original-portion/",
+      "platform": "woocommerce"
+    },
+    {
+      "retailer": "iSnus",
+      "domain": "isnus.se",
+      "url": "https://isnus.se/produkt/kaliber-original-portionssnus/",
+      "platform": "woocommerce",
+      "note": "30-pack är dyrare än 3 × 10-pack — DP-beräkningen fångar det."
+    },
+    {
+      "retailer": "Gonic",
+      "domain": "gonic.se",
+      "url": "https://gonic.se/kaliber-original",
+      "platform": "unknown"
+    },
+    {
+      "retailer": "Swedish Match",
+      "domain": "swedishmatch.se",
+      "url": "https://www.swedishmatch.se/kop-snus/kaliber/kaliber-original-portion-v105882/",
+      "platform": "unknown",
+      "note": "Tillverkaren själv."
+    },
+    {
+      "retailer": "Snusbolaget",
+      "domain": "snusbolaget.se",
+      "url": "https://snusbolaget.se/kaliber/kaliber-original-portion",
+      "platform": "haypp",
+      "cluster": "haypp",
+      "cluster_primary": true,
+      "note": "Cluster-representant. Snusbolaget/Nettotobak = samma koncern (Haypp), samma priser."
+    },
+    {
+      "retailer": "Nettotobak",
+      "domain": "nettotobak.com",
+      "url": "https://nettotobak.com/kaliber/kaliber-original-portion",
+      "platform": "haypp",
+      "cluster": "haypp",
+      "note": "Samma koncern som Snusbolaget — reserv."
+    },
+    {
+      "retailer": "Mathem",
+      "domain": "mathem.se",
+      "url": "https://www.mathem.se/se/products/2032-kaliber-kaliber-original-stock/",
+      "platform": "grocery",
+      "note": "Endast 10-pack, ingen volymrabatt."
+    },
+    {
+      "retailer": "SnusKungen",
+      "domain": "snuskungen.se",
+      "url": "https://snuskungen.se/produkt/kaliber-original-portion/",
+      "platform": "woocommerce"
+    },
+    {
+      "retailer": "Willys",
+      "domain": "willys.se",
+      "url": "https://www.willys.se/produkt/kaliber-original-portionssnus-101562904",
+      "platform": "grocery",
+      "note": "Ingen volymrabatt över 10-pack."
+    },
+    {
+      "retailer": "City Gross",
+      "domain": "citygross.se",
+      "url": "https://www.citygross.se/matvaror/tobak/snus-och-nikotinpasar/kaliber-original-p101562904_ST",
+      "platform": "grocery",
+      "note": "Butiksberoende pris."
+    },
+    {
+      "retailer": "NetSnus",
+      "domain": "netsnus.se",
+      "url": "https://www.netsnus.se/original-portion/94-kaliber-original-portionssnus",
+      "platform": "prestashop",
+      "note": "Priset per dosa går UPP vid 50."
+    },
+    {
+      "retailer": "Tobax",
+      "domain": "tobax.se",
+      "url": "https://tobax.se/products/kaliber-original-1",
+      "platform": "shopify"
+    },
+    {
+      "retailer": "Snushandel",
+      "domain": "snushandel.se",
+      "url": "https://www.snushandel.se/produkt/kaliber-original-portionssnus-2/",
+      "platform": "woocommerce",
+      "note": "Ingen volymrabatt."
+    },
+    {
+      "retailer": "Coop",
+      "domain": "coop.se",
+      "url": "https://www.coop.se/handla/varor/kiosk-tidningar/snus/original-portion/kaliber-portion-original-s2-10-pack-7311251449405/",
+      "platform": "grocery"
+    },
+    {
+      "retailer": "Tobaksgrossisten",
+      "domain": "tobaksgrossisten.se",
+      "url": "https://www.tobaksgrossisten.se/tobaksprodukter/portionssnus/kaliber-original-portion",
+      "platform": "unknown"
+    },
+    {
+      "retailer": "Nikoteket",
+      "domain": "nikoteket.se",
+      "url": "https://www.nikoteket.se/product/kaliber-original-portion",
+      "platform": "unknown"
+    },
+    {
+      "retailer": "Hemköp",
+      "domain": "hemkop.se",
+      "url": "https://www.hemkop.se/produkt/kaliber-original-portionssnus-101562904",
+      "platform": "grocery"
+    },
+    {
+      "retailer": "Snusfabriken",
+      "domain": "snusfabriken.com",
+      "url": "https://snusfabriken.com/produkt/kaliber-original-portion/",
+      "platform": "woocommerce",
+      "note": "Platt pris, ingen volymrabatt."
+    },
+    {
+      "retailer": "Snusexpress",
+      "domain": "snusexpress.se",
+      "url": "https://www.snusexpress.se/kaliber/kaliber-original-840",
+      "platform": "unknown"
+    },
+    {
+      "retailer": "SnusDirect",
+      "domain": "snusdirect.com",
+      "url": "https://www.snusdirect.com/sv/kaliber-snus/kaliber-original-portion-snus",
+      "platform": "unknown"
+    }
+  ],
+  "excluded": {
+    "megagross.nu": "Utesluten permanent. Prisdatan gick inte att läsa ur den öppna produktsidan, och den här hämtaren läser bara öppna sidor. Lägg inte tillbaka den.",
+    "samgross.se": "Ren B2B, kräver organisationsnummer.",
+    "buysnus.com": "USD-prissatt, ej svensk moms/tobaksskatt — ej jämförbart.",
+    "ica.se": "Endast lösdosa online, butiksberoende.",
+    "snusmagasinet.se": "Spegel av snusbolaget.se.",
+    "snusnetto.se": "Spegel av nettotobak.com.",
+    "vitt_snus_only": "Haypp, xsnus, Cigge, Vapehuset, Snusdaddy, Joselind — för inget tobakssnus.",
+    "doda": "snusbutiken.net, snuscentralen.se, snusproffsen.se, snuserian.se, snus2.se, eskiltobak.se"
+  }
+}

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Kaliber prisjakt">
+  <title>Kaliber prisjakt</title>
+  <!--
+    Snusdosa sedd ovanifran + prispil nedat (= lagsta priset).
+    Bara fyllda ytor, inga tunna linjer: tunnaste elementet (en lockring) ar
+    30 av 512 px = ~1,9 px vid 32 px favicon, dvs fortfarande synligt.
+    Hornradien 112/512 = 21,9 % ligger pa iOS squircle-masken, sa ikonen ser
+    likadan ut bade som favicon (omaskad) och i Dock/hemskarm (maskad).
+    PNG-varianterna renderas utan hornradie (full bleed) sa att OS:ets egen
+    mask far skara sjalv - se README.
+  -->
+  <rect width="512" height="512" rx="112" fill="#14513B"/>
+  <circle cx="256" cy="256" r="192" fill="#E3D8BC"/>
+  <circle cx="256" cy="256" r="162" fill="#CBBB97"/>
+  <circle cx="256" cy="256" r="132" fill="#FBF7EC"/>
+  <path d="M176 212 L336 212 L256 304 Z" fill="#14513B" stroke="#14513B" stroke-width="28" stroke-linejoin="round"/>
+</svg>
