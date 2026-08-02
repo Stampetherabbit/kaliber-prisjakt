@@ -9,7 +9,10 @@
    cachen som skyddsnät. Bara samma-origin GET rörs — butikslänkarna passerar orörda.
 */
 
-var CACHE = 'kaliber-prisjakt-v1';
+/* Bumpa versionen VARJE gång index.html ändras. Cachen är cache-first med
+   ignoreSearch:true, så utan bump serveras den gamla sidan till alla som redan
+   besökt den — inte ens en ?v=-parameter tar sig förbi. */
+var CACHE = 'kaliber-prisjakt-v2';
 var SHELL = [
   './',
   'index.html',

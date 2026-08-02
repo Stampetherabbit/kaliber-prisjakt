@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Kaliber Original — var är det billigast idag?</title>
-<meta name="description" content="Dagens pris på Kaliber Original hos svenska snusbutiker. Visar var det är billigast per dosa.">
-<meta name="theme-color" content="#F4EEDF" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#12100C" media="(prefers-color-scheme: dark)">
+<title>Kaliber Original — billigast just nu</title>
+<meta name="description" content="Var Kaliber Original är billigast idag. Ett svar, stor text.">
+<meta name="theme-color" content="#F3EDDF" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#100E0A" media="(prefers-color-scheme: dark)">
 <meta name="application-name" content="Kaliber">
 <meta name="apple-mobile-web-app-title" content="Kaliber">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -14,357 +14,399 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="color-scheme" content="light dark">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
-<link rel="alternate icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><rect width='512' height='512' rx='112' fill='%2314513B'/><circle cx='256' cy='256' r='192' fill='%23E3D8BC'/><circle cx='256' cy='256' r='162' fill='%23CBBB97'/><circle cx='256' cy='256' r='132' fill='%23FBF7EC'/><path d='M176 212 L336 212 L256 304 Z' fill='%2314513B' stroke='%2314513B' stroke-width='28' stroke-linejoin='round'/></svg>">
+<link rel="alternate icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><rect width='512' height='512' rx='112' fill='%2308301F'/><circle cx='256' cy='256' r='192' fill='%23E3D8BC'/><circle cx='256' cy='256' r='162' fill='%23CBBB97'/><circle cx='256' cy='256' r='132' fill='%23FCF8EE'/><path d='M176 212 L336 212 L256 304 Z' fill='%2308301F' stroke='%2308301F' stroke-width='28' stroke-linejoin='round'/></svg>">
 <link rel="icon" type="image/svg+xml" href="icon.svg">
 <link rel="manifest" href="manifest.webmanifest">
 
 <style>
 /* ─────────────────────────────────────────────────────────────
-   Kaliber-priser · gränssnitt
+   Kaliber-priser — "sidan ÄR svaret"
 
-   Värld:   tobakshandelns disk — obleket kartongpapper, pennbläck,
-            diskens gröna filt (samma gröna som appikonen).
-   Signatur: kassarullens perforering. Den delar av prislappen,
-            skiljer reservbutikerna åt, ramar in sidan — och fylls
-            med bläck som laddningsindikator när priserna hämtas.
-   Djup:    enbart linjer + ytnyanser. Exakt EN upphöjd yta: vinnaren.
-   Kontrast: all text ≥ 7:1 (WCAG AAA). Minsta textstorlek 16 px.
-            Ramar och avdelare som bär betydelse ≥ 3:1 (WCAG 1.4.11).
-   Accent:  en enda — filtgrönt. Den betyder alltid "hit ska du".
+   Besökaren ser dåligt, står med telefonen i handen när dosorna är
+   slut, och minns inte hur sidan fungerade förra gången. Han ska
+   inte behöva trycka på något för att FÅ svaret — bara för att
+   beställa.
+
+   Världen: tobakshandelns skyltfönster. Prisskylten i rutan är
+   handtextad på obleket kartongpapper, ramad med grov tuschram,
+   och kupongen nedtill är den man river av och tar med till disken.
+
+   TRE FORMER, TRE BETYDELSER — inget annat får se ut så här:
+     1. GUL REMSA = hit trycker du för att beställa. Gult finns på
+        exakt ett ställe på hela sidan, i både ljust och mörkt läge.
+     2. VÄGG (6 px hård kant under ytan) = det här går att trycka på
+        och det ändrar vad du ser. Bara svarskortet och de tre
+        antalsknapparna har vägg. Trycker han sjunker ytan ner.
+     3. GRÖN YTA = det här har du valt. Grönt betyder inget annat.
+   Det som är kvar — "kolla priset", "om det är slut där" — är
+   medvetet stillsamt: understruken text respektive ram med pil.
+   Ingen av dem får kunna förväxlas med den gula remsan.
+
+   Mått (lågsyn går före estetik, alltid):
+     brödtext 24 px · etiketter, knappar och ALL text inne i en
+     klickyta ≥ 28,8 px · pris 105 px · klickytor ≥ 80 px
+     all text ≥ 12:1 · radavstånd 1,55 · fokusring 5 px
+     inga tunna ramar, inga tunna vikter, ingen kursiv,
+     inga versaler i löptext, inga streckade linjer.
    ───────────────────────────────────────────────────────────── */
 
 :root{
-  font-size:125%;              /* 1rem = 20px, skalar med användarens egen textstorlek */
+  font-size:150%;               /* 1rem = 24 px, och skalar med hans egen textstorlek */
   color-scheme:light dark;
 
-  /* Ytor — samma kulör hela vägen, bara ljusare för varje nivå */
-  --paper:     #F4EEDF;        /* sidan */
-  --card:      #FBF7EC;        /* nivå 1 */
-  --card-up:   #FFFDF7;        /* nivå 2 — bara vinnaren bor här */
+  /* Kartongpapperet — samma kulör hela vägen, bara ljusare per nivå */
+  --paper:   #F3EDDF;
+  --card:    #FCF8EE;
 
-  /* Bläck */
-  --ink:       #1C1A14;        /* 15,1:1 */
-  --ink-2:     #4A452F;        /*  8,3:1 */
-  --ink-3:     #524C36;        /*  7,4:1 */
+  /* Tuschet */
+  --ink:     #191710;           /* 15,4:1 mot papperet · 16,9:1 mot kortet */
+  --ink-2:   #2E2A1E;           /* 12,3:1 mot papperet · 13,5:1 mot kortet */
 
-  /* Diskens filt — enda accenten */
-  --felt:      #14513B;        /*  7,9:1 */
-  --felt-deep: #0E3F2D;
-  --on-felt:   #FBF7EC;        /*  8,5:1 mot filten */
-  --fill:      var(--felt);    /* laddningsindikatorns bläck */
+  /* Signalgult — sidans enda accent, och den sitter på EN yta:
+     remsan som tar honom till butiken. */
+  --signal:   #FFD400;
+  --on-signal:#121110;          /* 13,2:1 mot gult */
 
-  /* Linjer som BÄR BETYDELSE (knappramar, radavdelare i reservlistan).
-     .55 mot papperet ger 3,7:1 — över 1.4.11-kravet på 3:1. En okryssad
-     antal-knapp har nästan samma fyllning som sidan, så ramen är hela
-     beviset på att den går att trycka på; den får inte vara svag. */
-  --rule-firm: rgba(28,26,20,.55);
-  /* Rent dekorativ perforering — ingen betydelse, inget kontrastkrav. */
-  --perf:      #C3B18A;
+  /* Grönt betyder numera bara en sak: "det här har du valt". */
+  --green:   #08301F;           /* 12,4:1 mot papperet */
+  --on-green:#FCF8EE;           /* 13,6:1 mot grönt */
 
-  --lift:    0 1px 0 rgba(28,26,20,.05), 0 14px 28px -18px rgba(40,34,14,.45);
-  --lift-hi: 0 1px 0 rgba(28,26,20,.05), 0 20px 34px -18px rgba(40,34,14,.50);
+  /* Ramar och väggar. Grova och mörka — en blek ram är osynlig för honom. */
+  --line:    var(--ink);
+  --wall:    #191710;           /* väggen under tryckytor, 15,4:1 mot papperet */
+  --track:   rgba(25,23,16,.28);  /* laddningsindikatorns spår */
 
-  --r-s:.4rem; --r-m:.7rem;
-  --serif:Georgia,'Iowan Old Style','Palatino Linotype',Palatino,'Times New Roman',serif;
+  --r:14px;
+  --lift:6px;                   /* väggens höjd */
   --sans:-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,sans-serif;
-
-  --pad-x:.9rem;               /* sidans marginal, krymper på riktigt smala skärmar */
-  --pad-card:1.2rem;
+  --pad:16px;
 }
 
 @media (prefers-color-scheme:dark){
   :root{
-    --paper:#12100C; --card:#1A1712; --card-up:#221E17;
-    --ink:#F5EFE0; --ink-2:#D3CBB4; --ink-3:#B3AB92;
-    --felt:#6FC79A; --felt-deep:#95DCB8; --on-felt:#12100C;
-    --fill:#95DCB8;                     /* 3,7:1 mot perforeringens spår */
-    --rule-firm:rgba(245,239,224,.42);  /* 3,7:1 mot både sida och kort */
-    --perf:#6D6450;
-    --lift:0 0 0 1px rgba(245,239,224,.09), 0 14px 28px -18px rgba(0,0,0,.8);
-    --lift-hi:0 0 0 1px rgba(245,239,224,.14), 0 20px 34px -18px rgba(0,0,0,.9);
+    --paper:#100E0A; --card:#1B1811;
+    --ink:#F7F3E8;                /* 17,4:1 mot bakgrunden */
+    --ink-2:#E0D9C6;              /* 13,7:1 mot bakgrunden · 12,6:1 mot kortet */
+    --green:#A6E8C4;              /* 13,7:1 mot bakgrunden · 12,6:1 mot kortet */
+    --on-green:#0B1A13;           /* 12,8:1 mot grönt */
+    --wall:#8F8873;               /* 5,5:1 mot bakgrunden — syns, men lyser inte */
+    --track:rgba(247,243,232,.30);
+    /* Gult är samma gula i båda lägena. En färg, en betydelse, oavsett
+       vilket läge telefonen råkar stå i. */
   }
 }
 
 *,*::before,*::after{box-sizing:border-box}
 [hidden]{display:none !important}
 html{-webkit-text-size-adjust:100%}
+
 body{
-  margin:0;padding:1.4rem var(--pad-x) 2.4rem;
+  margin:0;padding:12px var(--pad) 40px;
   background:var(--paper);color:var(--ink);
-  font:400 1rem/1.55 var(--sans);
+  font:500 1rem/1.55 var(--sans);          /* 24 px — ingen vikt under 500 någonstans */
+  font-variant-numeric:tabular-nums lining-nums;
+  letter-spacing:.005em;
   overflow-wrap:break-word;
 }
-.sheet{max-width:31rem;margin:0 auto}
-button{font:inherit;touch-action:manipulation}
+.page{max-width:26rem;margin:0 auto}       /* skrivbord: samma sida, bara centrerad */
+button{font:inherit;color:inherit;touch-action:manipulation}
 a{touch-action:manipulation}
+p{margin:0}
 
-:focus-visible{outline:3px solid var(--ink);outline-offset:3px;border-radius:.25rem}
+:focus-visible{outline:5px solid var(--ink);outline-offset:5px;border-radius:6px}
+.lift:focus-visible{outline-offset:9px}    /* så ringen klarar väggen under ytan */
 :focus:not(:focus-visible){outline:none}
 .sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
 
-/* Signaturen: kassarullens avrivningslinje (dekor) */
-.perf{height:0;border:0;border-top:2px dotted var(--perf);margin:1.4rem 0}
+/* ── Huvudet: bara vad sidan handlar om ───────────────── */
+.masthead{display:flex;align-items:center;gap:12px;margin:0 0 10px}
+.mark{flex:0 0 auto;width:40px;height:40px;display:block}
+h1{margin:0;font-size:1.2rem;line-height:1.5;font-weight:700}
 
-/* ── Huvudet ──────────────────────────────────────────── */
-.masthead{display:flex;gap:.9rem;align-items:flex-start;margin:0 auto 1.1rem;max-width:31rem}
-.mark{flex:0 0 auto;width:3.1rem;height:3.1rem;display:block}
-h1{margin:.1rem 0 0;font:700 clamp(1.85rem,7.5vw,2.35rem)/1.12 var(--serif);letter-spacing:-.012em}
-.ask{margin:.3rem 0 0;font:400 clamp(1.05rem,4.2vw,1.2rem)/1.3 var(--serif);color:var(--ink-2)}
-.spec{margin:.55rem 0 0;font-size:.9rem;line-height:1.4;color:var(--ink-3);letter-spacing:.015em}
+/* ── Varning: syns bara när priserna är gamla ─────────── */
+.notice{
+  margin:0 0 16px;padding:16px 18px;
+  background:var(--card);color:var(--ink);
+  border:3px solid var(--line);border-left-width:14px;border-radius:var(--r);
+  line-height:1.55;
+}
 
-/* ── Sektioner ────────────────────────────────────────── */
-section{margin:0 0 1.5rem}
-h2{margin:0 0 .7rem;font:600 1.1rem/1.3 var(--sans);color:var(--ink-2)}
+/* ── VÄGGEN: tryckbarhetssignalen. Går att lära sig på en sekund,
+      fungerar i gråskala, och kräver inget färgseende. ─────── */
+.lift{
+  box-shadow:0 var(--lift) 0 0 var(--wall);
+  transition:transform .1s ease,box-shadow .1s ease;
+}
+.lift:active{transform:translateY(var(--lift));box-shadow:0 0 0 0 var(--wall)}
 
-/* ── Antal dosor ──────────────────────────────────────── */
-.qty{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem}
+/* ── SKYLTEN: hela svaret, och knappen är dess underkant ─ */
+.answer{
+  display:block;text-decoration:none;color:inherit;
+  background:var(--card);
+  border:3px solid var(--line);border-radius:var(--r);
+  overflow:hidden;                          /* kupongen klipps mot hörnen */
+}
+/* Varje uppgift på egen rad — annars lägger sig etiketten och butiksnamnet
+   bredvid varandra så fort det finns plats (bred skärm). */
+.answer > *,.answer .pad > *{display:block}
+.answer .pad{padding:12px 18px}
+.eyebrow{font-size:1.2rem;line-height:1.5;font-weight:700;color:var(--ink)}
+.shop{
+  font-size:clamp(1.5rem,11.5vw,1.9rem);line-height:1.5;
+  font-weight:700;
+}
+/* Enda stället på sidan med tätare radavstånd än 1,5 — och det är en enda rad
+   som aldrig bryts (nowrap), så radavståndet är bara boxhöjd, inte läsbarhet.
+   Golvet 4rem = 96 px: priset får krympa med skärmen ända ner till kravet,
+   sedan tar de smala reglerna längre ner över. */
+.price-num{
+  display:block;
+  font-size:clamp(4rem,28vw,4.4rem);        /* 96 px vid 343 px · 105 px vid 390 px */
+  line-height:1;font-weight:700;letter-spacing:-.02em;
+  white-space:nowrap;font-variant-numeric:tabular-nums lining-nums;
+}
+.price-unit{display:block;font-size:1.2rem;line-height:1.5;font-weight:600}
+.total{display:block;margin-top:6px;font-size:1.2rem;line-height:1.5;font-weight:700}
+/* Hur färskt priset är hör hemma bredvid priset, inte i en statusrad längst
+   ner. Den står på EN plats på sidan — aldrig två. */
+.kontroll{display:block;font-size:1.2rem;line-height:1.5;font-weight:600;color:var(--ink-2)}
+
+/* Kupongremsan — fastsvetsad i skyltens underkant, ingen glipa.
+   Sidans enda gula yta. */
+.cta{
+  display:block;min-height:84px;padding:19px 16px;
+  background:var(--signal);color:var(--on-signal);
+  font-size:1.2rem;line-height:1.5;font-weight:700;
+}
+@media (hover:hover){.answer:hover .cta{filter:brightness(1.1)}}
+.answer.enter{animation:rise .4s ease-out both}
+@keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+/* ── Det lilla som hör till svaret ─────────────────────── */
+.detail{margin:16px 0 0;line-height:1.55;color:var(--ink-2)}
+/* Bildtexten hör till kortet. Försvinner kortet försvinner den med — kopplat
+   i CSS, så det inte kan glömmas bort på något ställe i skriptet. */
+#winner[hidden] ~ .detail{display:none}
+
+/* ── Antal dosor ───────────────────────────────────────── */
+section{margin:24px 0 0}
+h2{margin:0 0 10px;font-size:1.2rem;line-height:1.5;font-weight:700;color:var(--ink)}
+
+.qty{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
 .qty-btn{
   display:flex;flex-direction:column;align-items:center;justify-content:center;
-  min-height:4.1rem;padding:.55rem .25rem;
+  min-height:120px;padding:12px 4px;
   background:var(--card);color:var(--ink);
-  border:2px solid var(--rule-firm);border-radius:var(--r-m);
-  cursor:pointer;transition:background .16s ease,border-color .16s ease,transform .12s ease;
+  border:3px solid var(--line);border-radius:var(--r);
+  font-size:1.6rem;line-height:1.5;font-weight:700;
+  font-variant-numeric:tabular-nums lining-nums;
+  cursor:pointer;
 }
-.qty-num{font:700 1.75rem/1 var(--serif);letter-spacing:-.01em}
-.qty-unit{font-size:.85rem;font-weight:500;color:var(--ink-3);margin-top:.1rem}
-@media (hover:hover){.qty-btn:hover{border-color:var(--ink);background:var(--card-up)}}
-.qty-btn:active{transform:translateY(1px)}
-.qty-btn[aria-pressed="true"]{background:var(--felt);border-color:var(--felt);color:var(--on-felt)}
-.qty-btn[aria-pressed="true"] .qty-unit{color:var(--on-felt)}
-.qty-btn[aria-pressed="true"]::after{        /* markering som inte bara är färg */
-  content:"";display:block;width:1.5rem;height:2px;margin-top:.32rem;
-  background:var(--on-felt);opacity:.85;
+/* Markeringen är tre saker samtidigt, ingen av dem beroende av färgseende:
+   ytan blir mörk, texten blir ljus, och det står "valt" med bokstäver.
+   Platsen är alltid reserverad, så raden inte hoppar när han byter antal. */
+.qty-btn::after{
+  content:"valt";visibility:hidden;
+  font-size:1.2rem;line-height:1.5;font-weight:600;
 }
+.qty-btn[aria-pressed="true"]{background:var(--green);color:var(--on-green)}
+.qty-btn[aria-pressed="true"]::after{visibility:visible}
+@media (hover:hover){.qty-btn:hover{background:var(--paper)}
+  .qty-btn[aria-pressed="true"]:hover{background:var(--green);filter:brightness(1.12)}}
 
-/* ── Hämta-knappen ────────────────────────────────────── */
-.action{
-  display:block;width:100%;min-height:4rem;padding:1rem 1.1rem;
-  background:var(--felt);color:var(--on-felt);
-  border:2px solid var(--felt);border-radius:var(--r-m);
-  font-size:1.3rem;font-weight:600;line-height:1.2;cursor:pointer;
-  transition:background .16s ease,border-color .16s ease,transform .12s ease;
+/* ── Kolla om priset ändrats ───────────────────────────
+   Behöver han sällan, och den får aldrig förväxlas med den gula remsan.
+   Alltså: ingen platta, ingen ram, ingen vägg — bara understruken text
+   i full bredd, så klickytan ändå är stor. */
+.textlink{
+  display:block;width:100%;min-height:80px;padding:22px 8px;
+  background:none;border:0;color:var(--ink);
+  font-size:1.2rem;line-height:1.5;font-weight:700;text-align:center;cursor:pointer;
+  text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:7px;
 }
-@media (hover:hover){.action:hover{background:var(--felt-deep);border-color:var(--felt-deep);color:var(--on-felt)}}
-.action:active{transform:translateY(1px)}
-.action[aria-disabled="true"]{cursor:default;background:var(--felt-deep);border-color:var(--felt-deep)}
+@media (hover:hover){.textlink:hover{background:var(--card)}}
+.textlink[aria-disabled="true"]{cursor:default;opacity:1}
 
-.status{margin:.8rem 0 0;min-height:1.45em;font-size:1rem;line-height:1.45;color:var(--ink-2)}
-.status b{font-weight:600;color:var(--ink)}
+/* Statusraden är härkomst, inte svar. I vila skulle den upprepa kortet ord
+   för ord vid varje sidladdning och varje antalsbyte, så då finns den bara
+   för skärmläsaren (.sr). Synlig blir den när han själv tryckt på "kolla om
+   priset ändrats" och när något gått fel — då är den besked, inte eko. */
+.status{margin:12px 0 0;line-height:1.55;color:var(--ink-2)}
+.status b{font-weight:700;color:var(--ink)}
+.progress{margin-top:12px;height:12px;border-radius:999px;overflow:hidden;background:var(--track)}
+.progress > i{display:block;height:100%;width:0;border-radius:999px;background:var(--ink);transition:width .5s ease}
 
-/* Marginalanteckning: när priserna inte kunde uppdateras, eller när sidan
-   behöver säga något ärligt. Ingen larmfärg — en lugn ton, som en notering
-   i kanten på ett kvitto. */
-.notice{
-  margin:.85rem 0 0;padding:.8rem .95rem;
-  background:var(--card);
-  border:2px solid var(--rule-firm);border-left:.35rem solid var(--ink-3);
-  border-radius:var(--r-s);
-  font-size:1rem;line-height:1.5;color:var(--ink-2);
+/* ── Om det är slut där — gömt tills han behöver det ─────
+   Ram och pil, men ingen vägg och inget gult: den öppnar en låda,
+   den beställer ingenting. */
+.more{margin:24px 0 0}
+/* display:list-item och inget annat: byter man display på en <summary> i
+   Chrome tappar den sin knapproll och skärmläsaren slutar säga att ytan går
+   att fälla ut. Pilen får flyta i stället för att ligga i ett flex-spann. */
+.more > summary{
+  display:list-item;list-style:none;
+  min-height:88px;padding:21px 18px;
+  background:var(--card);color:var(--ink);
+  border:3px solid var(--line);border-radius:var(--r);
+  font-size:1.2rem;line-height:1.5;font-weight:700;cursor:pointer;
 }
-.notice p{margin:0}
-.notice a{color:var(--felt);font-weight:600}
+.more > summary::-webkit-details-marker{display:none}
+.more > summary::after{content:"▾";float:right;margin-left:14px;font-weight:700}
+.more[open] > summary::after{content:"▴"}
+@media (hover:hover){.more > summary:hover{background:var(--paper)}}
+.more-lead{margin:16px 0 0;line-height:1.55;color:var(--ink-2)}
+.more-lead:empty{display:none}
 
-/* Perforeringen fylls med bläck medan priserna hämtas */
-.progress{
-  margin-top:.7rem;height:.3rem;border-radius:999px;overflow:hidden;
-  background:repeating-linear-gradient(90deg,var(--perf) 0 4px,transparent 4px 9px);
-}
-.progress > i{display:block;height:100%;width:0;border-radius:999px;background:var(--fill);transition:width .5s ease}
-
-/* ── Vinnaren: prislappen ─────────────────────────────── */
-.tag{
-  display:block;padding:1.1rem var(--pad-card) 1.2rem;
-  background:var(--card-up);color:inherit;text-decoration:none;
-  border:2px solid var(--felt);border-radius:var(--r-m);
-  box-shadow:var(--lift);
-  transition:box-shadow .2s ease,transform .2s ease;
-}
-@media (hover:hover){.tag:hover{transform:translateY(-2px);box-shadow:var(--lift-hi)}}
-.tag:active{transform:translateY(0)}
-.tag.enter{animation:rise .52s cubic-bezier(.2,.75,.3,1) both}
-@keyframes rise{from{opacity:0;transform:translateY(14px) scale(.985)}to{opacity:1;transform:none}}
-
-.tag-top{display:flex;flex-wrap:wrap;gap:.35rem 1rem;align-items:baseline;justify-content:space-between}
-.eyebrow{font-size:.9rem;font-weight:600;letter-spacing:.05em;color:var(--felt)}
-.eyebrow.is-old{color:var(--ink-2)}
-.freshness{font-size:.85rem;font-weight:500;color:var(--ink-3);white-space:nowrap}
-
-.shop{display:block;margin:.45rem 0 .5rem;font:700 clamp(1.5rem,6vw,1.75rem)/1.15 var(--serif);letter-spacing:-.008em}
-.price{display:flex;flex-wrap:wrap;align-items:baseline;gap:.1rem .55rem}
-.price-num{font:700 clamp(3.6rem,15.5vw,5rem)/.95 var(--serif);letter-spacing:-.025em;color:var(--ink)}
-.price-unit{font-size:1.05rem;font-weight:600;line-height:1.2;color:var(--ink-2)}
-
-.lines{margin:0;font-size:1.05rem;line-height:1.5}
-.lines .row{display:flex;flex-wrap:wrap;gap:0 .5rem}
-.lines .k{color:var(--ink-3)}
-.lines .v{font-weight:600;color:var(--ink)}
-
-.cta{
-  display:flex;align-items:center;justify-content:space-between;gap:.8rem;
-  margin-top:1.05rem;padding:.95rem 1rem;border-radius:var(--r-s);
-  background:var(--felt);color:var(--on-felt);
-  font-size:1.2rem;font-weight:600;line-height:1.25;
-}
-.cta .arrow{font-size:1.4rem;line-height:1}
-.aside{margin:.8rem 0 0;font-size:1rem;line-height:1.5;color:var(--ink-2)}
-.aside:empty{margin:0}
-
-/* ── Reservbutikerna ──────────────────────────────────── */
-/* Avdelarna är enda gränsen mellan fyra separata tryckytor → komponentgräns,
-   inte dekor. Därför --rule-firm (3,7:1) och inte den bleka perforeringen. */
-.backups{margin:0;padding:0;list-style:none;border-top:2px dotted var(--rule-firm)}
-.backups li{border-bottom:2px dotted var(--rule-firm)}
-.backups li:last-child{border-bottom:0}   /* foten har redan sin egen avrivningslinje */
-.backups a{
-  display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:.1rem .8rem;
-  min-height:3.5rem;padding:.85rem .3rem;color:inherit;text-decoration:none;
-  transition:background .16s ease;
-}
+/* Reservraderna staplas: namn, pris, summa — var sak på egen rad.
+   All text här är ≥ 28,8 px: hela raden är en klickyta, och då duger inte
+   brödtextstorlek åt underraden. */
+.backups{margin:14px 0 0;padding:0;list-style:none}
+.backups li{border-top:2px solid var(--line)}
+.backups a{display:block;min-height:88px;padding:18px 2px;color:inherit;text-decoration:none}
 @media (hover:hover){.backups a:hover{background:var(--card)}}
-.backups a:active{background:var(--card)}
-.b-shop{font:700 1.1rem/1.3 var(--serif)}
-.b-price{font-size:1.15rem;font-weight:600;line-height:1.3;color:var(--ink);white-space:nowrap}
-.b-price .arrow{margin-left:.35rem;color:var(--felt)}
-.b-sub{flex:1 0 100%;font-size:.9rem;line-height:1.4;color:var(--ink-3)}
+.b-shop{display:block;font-size:1.2rem;line-height:1.5;font-weight:700}
+.b-price{display:block;font-size:1.2rem;line-height:1.5;font-weight:700;font-variant-numeric:tabular-nums lining-nums}
+.b-price .arrow{margin-left:8px}
+.b-sub{display:block;font-size:1.2rem;line-height:1.5;font-weight:600;color:var(--ink-2)}
+.b-sub .nb{white-space:nowrap}
 
-/* ── Foten ────────────────────────────────────────────── */
-.colophon{margin:0 auto;max-width:31rem;font-size:.85rem;line-height:1.6;color:var(--ink-3)}
-.colophon p{margin:0 0 .5rem}
-.colophon p:last-child{margin:0}
+/* ── Foten ─────────────────────────────────────────────── */
+.colophon{margin:26px 0 0;line-height:1.55;color:var(--ink-2)}
+.colophon p + p{margin-top:12px}
 
-/* Mycket smal yta — t.ex. mobil vid 200 % zoom. Allt får plats på höjden
-   i stället för att tvinga fram sidled-scroll. Textstorlekarna hålls kvar.
-   OBS px och inte rem: rem i en media query löses alltid mot webbläsarens
-   grundstorlek (16 px), aldrig mot :root{font-size:125%} — 17rem hade tänt
-   först vid 272 px och lämnat bandet 272–340 px oskyddat. */
-@media (max-width:340px){
-  /* Prislappens 56 px är golv enligt tillgänglighetskravet och får inte krympa.
-     Alltså är det marginalerna som ger vika här — annars kolliderar kravet på
-     stor siffra med kravet på noll sidled-scroll vid 200 % zoom. */
-  :root{--pad-x:.35rem;--pad-card:.55rem}
-  /* Butiksnamn och priser i reservlistan får brytas var som helst hellre än
-     att spränga bredden. */
-  .backups a{overflow-wrap:anywhere;word-break:break-word}
-  .sheet,.backups,.backups li,.backups a{min-width:0}
-  .masthead{flex-direction:column;gap:.5rem}   /* märket över rubriken */
-  .masthead > div{min-width:0}                 /* låt rubriken brytas i stället för att spränga bredden */
-  .mark{width:2.6rem;height:2.6rem}
-  /* "Kaliber" är sidans bredaste odelbara ord. Vid 320 px-skärm i 200 % zoom
-     (= 160 px layoutbredd) är 1,85rem för brett och tvingar fram sidled-scroll.
-     Rubriken får krympa här — den är fortfarande störst på sidan. */
-  h1{font-size:clamp(1.45rem,9vw,1.85rem)}
-  .ask{font-size:clamp(1rem,5.5vw,1.15rem)}
-  .qty{grid-template-columns:minmax(0,1fr);gap:.5rem}   /* tre knappar på höjden */
-  .price-num{font-size:clamp(2.8rem,22vw,3.6rem)}
-  .b-price,.freshness{white-space:normal}
-  .backups a{flex-direction:column;align-items:flex-start;justify-content:center;gap:.15rem}
-  .b-shop,.b-price{min-width:0}
-  .cta{flex-wrap:wrap;gap:.35rem;padding:.85rem .7rem}
-  .cta > span:first-child{min-width:0}   /* låt "Beställ hos …" brytas, pilen stannar inne */
+/* Skrivbord: samma sida, samma storlekar — bara centrerad och luftigare.
+   Telefonen är originalet, inte det nedskalade undantaget. */
+@media (min-width:700px){
+  body{padding:40px 24px 64px}
+  .answer .pad{padding:24px 26px}
+  .cta{padding:24px 26px}
+  .masthead{margin-bottom:20px}
+  section,.more,.colophon{margin-top:36px}
 }
+
+/* Riktigt smal yta — t.ex. 200 % zoom på en 390 px-telefon.
+   px och inte rem: rem i en media query löses mot webbläsarens
+   grundstorlek (16 px), aldrig mot :root{font-size:150%}. */
+/* Smala telefoner (320 px och nedåt): marginalerna ger vika, inte siffran.
+   Priset ligger kvar på 96 px så länge det får plats på en rad. */
+@media (max-width:359px){
+  :root{--pad:12px}
+  .answer .pad{padding:12px 14px}
+  .cta{padding:18px 14px}
+}
+/* Under 320 px är det inte längre en telefon utan hård zoom. Här räknas CSS-
+   pixlar om: vid 200 % zoom ritas 24 px som 48 px och 53 px som 105 px på
+   glaset — alltså STÖRRE än på en ozoomad telefon. Det som krymper är
+   koordinatsystemet, inte bokstäverna han ser. Därför får texten gå under
+   golvet här, och bara här — alternativet är att "Kontrollerat" bryts mitt
+   itu, och ett ord i två delar är svårare att läsa än ett mindre ord. */
+@media (max-width:319px){
+  :root{--pad:8px}
+  .masthead{gap:10px}
+  .mark{width:36px;height:36px}
+  .answer .pad{padding:10px}
+  .cta{padding:16px 10px}
+  .eyebrow,.price-unit,.total,.kontroll,.cta{font-size:1rem}
+  /* Priset får krympa hellre än klippas mot kortkanten — ett halvt pris är
+     ett fel pris. */
+  .price-num{font-size:min(4.4rem,27vw)}
+  /* Butiksnamnet måste ändå förbli störst efter priset. */
+  .shop{font-size:min(1.9rem,15vw)}
+  .qty{grid-template-columns:minmax(0,1fr)}   /* tre knappar på höjden i stället */
+  .qty-btn{min-height:104px}
+  .backups a{overflow-wrap:anywhere}
+}
+/* Bara vid riktigt hård zoom: annars bryts "Snuslagret" mitt itu och lämnar
+   ett ensamt t på sista raden. 24 px ritas som 48 px vid 200 % zoom. */
+@media (max-width:260px){ .cta{font-size:.92rem} }
 
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none !important;transition:none !important}
-  .tag:hover{transform:none}
 }
 </style>
 </head>
 <body>
+<div class="page">
 
-<header class="masthead">
-  <svg class="mark" viewBox="0 0 512 512" aria-hidden="true" focusable="false">
-    <rect width="512" height="512" rx="112" fill="#14513B"/>
-    <circle cx="256" cy="256" r="192" fill="#E3D8BC"/>
-    <circle cx="256" cy="256" r="162" fill="#CBBB97"/>
-    <circle cx="256" cy="256" r="132" fill="#FBF7EC"/>
-    <path d="M176 212 L336 212 L256 304 Z" fill="#14513B" stroke="#14513B" stroke-width="28" stroke-linejoin="round"/>
-  </svg>
-  <div>
+  <header class="masthead">
+    <svg class="mark" viewBox="0 0 512 512" aria-hidden="true" focusable="false">
+      <rect width="512" height="512" rx="112" fill="#08301F"/>
+      <circle cx="256" cy="256" r="192" fill="#E3D8BC"/>
+      <circle cx="256" cy="256" r="162" fill="#CBBB97"/>
+      <circle cx="256" cy="256" r="132" fill="#FCF8EE"/>
+      <path d="M176 212 L336 212 L256 304 Z" fill="#08301F" stroke="#08301F" stroke-width="28" stroke-linejoin="round"/>
+    </svg>
     <h1>Kaliber Original</h1>
-    <p class="ask">Var är det billigast idag?</p>
-    <p class="spec" id="spec">18 g · 20 prillor · 7,5 mg per prilla</p>
-  </div>
-</header>
+  </header>
 
-<main class="sheet">
+  <!-- Syns bara när priserna hunnit bli gamla. Då står det först på sidan. -->
+  <div class="notice" id="notice" role="status" aria-live="polite" hidden><p id="noticeText"></p></div>
 
-  <hr class="perf">
+  <main>
+    <h2 class="sr">Billigast just nu</h2>
 
-  <noscript>
-    <div class="notice">
-      <p>Den här sidan behöver JavaScript för att räkna ut var det är billigast.
-      Du kan gå direkt till
-      <a href="https://snuslagret.se/produkt/snus/portionssnus/kaliber-original/" target="_blank" rel="noopener">Snuslagret</a>,
-      som brukar ha det lägsta priset.</p>
-    </div>
-  </noscript>
-
-  <section aria-labelledby="qh">
-    <h2 id="qh">Hur många dosor?</h2>
-    <div class="qty" role="group" aria-labelledby="qh">
-      <button type="button" class="qty-btn" data-qty="10" aria-pressed="true" aria-label="10 dosor">
-        <span class="qty-num">10</span><span class="qty-unit">dosor</span>
-      </button>
-      <button type="button" class="qty-btn" data-qty="20" aria-pressed="false" aria-label="20 dosor">
-        <span class="qty-num">20</span><span class="qty-unit">dosor</span>
-      </button>
-      <button type="button" class="qty-btn" data-qty="30" aria-pressed="false" aria-label="30 dosor">
-        <span class="qty-num">30</span><span class="qty-unit">dosor</span>
-      </button>
-    </div>
-  </section>
-
-  <section>
-    <h2 class="sr">Priserna</h2>
-    <button type="button" class="action" id="refresh">Hämta dagens priser</button>
-    <p class="status" id="status" role="status" aria-live="polite">Läser in priserna …</p>
-    <div class="progress" id="progress" hidden aria-hidden="true"><i id="progressBar"></i></div>
-    <div class="notice" id="notice" role="status" aria-live="polite" hidden><p id="noticeText"></p></div>
-  </section>
-
-  <section aria-labelledby="wh">
-    <h2 class="sr" id="wh">Billigast just nu</h2>
-
-    <a class="tag" id="winner" href="#" target="_blank" rel="noopener" hidden>
-      <span class="tag-top">
+    <!-- Svaret står här redan innan sidan hunnit räkna. Sparat pris,
+         kontrollerat 2 augusti 2026, som skrivs över så fort dagens priser
+         lästs in. Även färskhetsraden är ifylld från början, så raden inte
+         hoppar fram när skriptet kommer igång. -->
+    <a class="answer lift" id="winner"
+       href="https://snuslagret.se/produkt/snus/portionssnus/kaliber-original/"
+       target="_blank" rel="noopener">
+      <span class="pad">
         <span class="eyebrow" id="eyebrow">Billigast just nu</span>
-        <span class="freshness" id="freshness"></span>
+        <span class="shop" id="wShop">Snuslagret</span>
+        <span class="price-num" id="wPer">21,99</span>
+        <span class="price-unit">kronor per dosa</span>
+        <span class="total" id="wTotal">219,90 kr för 10 dosor</span>
+        <span class="kontroll" id="freshness">Kontrollerat den 2 augusti</span>
       </span>
-
-      <span class="shop" id="wShop"></span>
-
-      <span class="price">
-        <span class="price-num" id="wPer"></span>
-        <span class="price-unit">kr per dosa</span>
-      </span>
-
-      <hr class="perf">
-
-      <div class="lines">
-        <div class="row"><span class="k">Totalt</span><span class="v" id="wTotal"></span></div>
-        <div class="row"><span class="k">Lägg i varukorgen</span><span class="v" id="wCombo"></span></div>
-      </div>
-
-      <span class="cta"><span id="wCta">Beställ</span><span class="arrow" aria-hidden="true">→</span></span>
+      <!-- Ingen pil. Den gula remsan med "Beställ hos …" säger allt en pil
+           hade sagt, och ett tecken till hade brutit ner på egen rad. -->
+      <span class="cta" id="wCta">Beställ hos Snuslagret</span>
     </a>
 
-    <p class="aside" id="aside" role="status"></p>
-  </section>
+    <noscript>
+      <p class="detail">Kontrollera priset i butiken innan du beställer.</p>
+    </noscript>
 
-  <section aria-labelledby="bh" id="backupSection" hidden>
-    <h2 id="bh">Om det är slut där</h2>
-    <ul class="backups" id="backups"></ul>
-  </section>
+    <p class="detail">Lägg <span id="wCombo">1 × 10-pack</span> i varukorgen.</p>
 
-  <hr class="perf">
+    <section aria-labelledby="qh">
+      <h2 id="qh">Hur många dosor?</h2>
+      <div class="qty" role="group" aria-labelledby="qh">
+        <button type="button" class="qty-btn lift" data-qty="10" aria-pressed="true" aria-label="10 dosor">10</button>
+        <button type="button" class="qty-btn lift" data-qty="20" aria-pressed="false" aria-label="20 dosor">20</button>
+        <button type="button" class="qty-btn lift" data-qty="30" aria-pressed="false" aria-label="30 dosor">30</button>
+      </div>
+    </section>
 
-</main>
+    <section>
+      <h2 class="sr">Priserna</h2>
+      <button type="button" class="textlink" id="refresh">Kolla om priset ändrats</button>
+      <p class="status sr" id="status" role="status" aria-live="polite">Läser in priserna …</p>
+      <div class="progress" id="progress" hidden aria-hidden="true"><i id="progressBar"></i></div>
+    </section>
 
-<footer class="colophon">
-  <p>Priserna är utan frakt. Vid tio dosor eller fler brukar butikerna skicka fritt.</p>
-  <p>Gäller Kaliber Original i brun originalportion, 18 gram. Varunummer <span id="ean">7311250449406</span>.</p>
-  <p>Butikens sida öppnas i ett nytt fönster, så den här sidan ligger kvar.</p>
-</footer>
+    <!-- Reservbutikerna hör hemma här och ingen annanstans: de behövs bara
+         den gång ettan är slut, och får aldrig konkurrera med svaret ovan.
+         Notisen om butikskedjan (#aside) hör till samma fråga — "vart går
+         jag i stället" — så den bor här inne. Hur många dosor det faktiskt
+         blir och vad de kostar står kvar i stora siffror uppe i skylten. -->
+    <details class="more" id="backupSection" hidden>
+      <summary>Om det är slut där</summary>
+      <p class="more-lead" id="aside" role="status"></p>
+      <p class="more-lead">Andra butiker med samma snus, men lite dyrare:</p>
+      <ul class="backups" id="backups"></ul>
+    </details>
+  </main>
+
+  <footer class="colophon">
+    <p>Priserna är utan frakt. Vid tio dosor eller fler skickar butikerna oftast fritt.</p>
+    <p>Butikens sida öppnas i ett nytt fönster, så den här sidan ligger kvar.</p>
+    <p class="sr">Gäller Kaliber Original, <span id="spec">18 g · 20 prillor · 7,5 mg per prilla</span>. Varunummer <span id="ean">7311250449406</span>.</p>
+  </footer>
+
+</div>
 
 <script>
 (function () {
@@ -591,6 +633,10 @@ h2{margin:0 0 .7rem;font:600 1.1rem/1.3 var(--sans);color:var(--ink-2)}
       }
     }
   }
+  /* I vila upprepar statusraden bara det som redan står i 105 px i kortet, så
+     då hålls den kvar enbart för skärmläsaren. Synlig blir den när han själv
+     tryckt på "kolla om priset ändrats" och när något gått fel. */
+  function showStatus(on) { el.status.className = on ? 'status' : 'status sr'; }
 
   /* ── Rita ──────────────────────────────────────────────── */
   var counting = null, settle = null;
@@ -634,11 +680,18 @@ h2{margin:0 0 .7rem;font:600 1.1rem/1.3 var(--sans);color:var(--ink-2)}
 
     var name = document.createElement('span'); name.className = 'b-shop'; name.textContent = r.name;
     var price = document.createElement('span'); price.className = 'b-price';
-    price.appendChild(document.createTextNode(kr(b.perCan) + ' kr/dosa'));
+    price.appendChild(document.createTextNode(kr(b.perCan) + ' kr per dosa'));
     var arr = document.createElement('span'); arr.className = 'arrow'; arr.setAttribute('aria-hidden', 'true');
     arr.textContent = '→'; price.appendChild(arr);
     var sub = document.createElement('span'); sub.className = 'b-sub';
-    sub.textContent = kr(b.total) + ' kr för ' + cans + ' dosor' + (b.combo ? ' · ' + b.combo : '');
+    sub.appendChild(document.createTextNode(kr(b.total) + ' kr för ' + cans + ' dosor'));
+    if (b.combo) {
+      // Håll ihop paketet på en rad. Annars bryts "· 1 × 30-pack" mitt itu och
+      // ettan hamnar ensam kvar på raden ovanför.
+      var cmb = document.createElement('span'); cmb.className = 'nb';
+      cmb.textContent = ' · ' + b.combo;
+      sub.appendChild(cmb);
+    }
 
     a.appendChild(name); a.appendChild(price); a.appendChild(sub);
     li.appendChild(a);
@@ -725,7 +778,7 @@ h2{margin:0 0 .7rem;font:600 1.1rem/1.3 var(--sans);color:var(--ink-2)}
      Priserna hämtas av en robot två gånger om dygnet och ligger färdigräknade
      i prices.json. Sidan läser bara den filen. Att i stället låta besökarens
      telefon skrapa sex butiker live genom en gratis mellanhand var både
-     långsamt och opålitligt (uppmätt: en av tre försök gick igenom, och den
+     långsamt och opålitligt (uppmätt: ett av tre försök gick igenom, och det
      som gick igenom tog nästan åtta sekunder) — han fick "kunde inte hämta"
      varenda gång. En fil, ett anrop, alltid samma siffror som är verifierade. */
   function withTimeout(promise, ms) {
@@ -755,7 +808,8 @@ h2{margin:0 0 .7rem;font:600 1.1rem/1.3 var(--sans);color:var(--ink-2)}
     if (state.busy) return;
     state.busy = true;
     el.refresh.setAttribute('aria-disabled', 'true');
-    el.refresh.textContent = 'Hämtar priser …';
+    el.refresh.textContent = 'Hämtar priserna …';
+    showStatus(true);                       // han har tryckt — nu ska han få besked
     say('Hämtar dagens priser. Det tar ett ögonblick.');
     el.progress.hidden = false;
     el.bar.style.width = '8%';
@@ -765,7 +819,7 @@ h2{margin:0 0 .7rem;font:600 1.1rem/1.3 var(--sans);color:var(--ink-2)}
       el.bar.style.width = '100%';
       state.busy = false;
       el.refresh.removeAttribute('aria-disabled');
-      el.refresh.textContent = 'Hämta dagens priser';
+      el.refresh.textContent = 'Kolla om priset ändrats';
       setTimeout(function () { el.progress.hidden = true; }, 200);
     }
 
@@ -779,13 +833,17 @@ h2{margin:0 0 .7rem;font:600 1.1rem/1.3 var(--sans);color:var(--ink-2)}
       finish();
       var w = render(true);
       warn(json);
+      showStatus(true);
       if (w) say('Klart. Billigast är ', strong(w.name), ' — ' + kr(w.perCan) + ' kr per dosa.');
       else say('Klart, men inga priser gick att visa just nu.');
     }, function () {
       finish();
       render(false);
-      say('Kunde inte hämta just nu. Visar priserna från ', strong(when(state.stamp)), '.');
-      note('Priserna kunde inte hämtas. Sidan visar de senast sparade, från ' + when(state.stamp) + '.');
+      showStatus(true);
+      // "från för 5 timmar sedan" är inte svenska. "som hämtades …" fungerar
+      // med alla tidsformer: nyss, i morse, för 5 timmar sedan, den 2 augusti.
+      say('Kunde inte hämta just nu. Visar priserna som hämtades ', strong(when(state.stamp)), '.');
+      note('Priserna kunde inte hämtas. Sidan visar de senast sparade, som hämtades ' + when(state.stamp) + '.');
     });
   }
 
@@ -807,7 +865,7 @@ h2{margin:0 0 .7rem;font:600 1.1rem/1.3 var(--sans);color:var(--ink-2)}
       return;
     }
     if (json && json.stale_warning) { note(String(json.stale_warning)); return; }
-    if (slow) { note('Priserna kunde inte läsas in just nu, så sidan visar de senast sparade. Tryck på knappen ovan för att försöka igen.'); return; }
+    if (slow) { note('Priserna kunde inte läsas in just nu, så sidan visar de senast sparade. Du kan försöka igen med den understrukna texten "Kolla om priset ändrats" längre ner.'); return; }
     note('');
   }
 
@@ -828,8 +886,12 @@ h2{margin:0 0 .7rem;font:600 1.1rem/1.3 var(--sans);color:var(--ink-2)}
       state.stamp = FALLBACK.fetched_at;
     }
     booted = true;
-    render(true);
-    say('Senast kontrollerat ', strong(when(state.stamp)), '.');
+    var w = render(true);
+    // "Senast kontrollerat i morse" står redan med stora bokstäver inne i
+    // kortet. Här finns den bara för skärmläsaren — utom när svaret uteblev.
+    showStatus(!w);
+    if (w) say('Senast kontrollerat ', strong(when(state.stamp)), '.');
+    else say('Inga priser gick att visa just nu. Försök igen om en stund.');
     warn(json, slow);
   }
 
@@ -843,6 +905,9 @@ h2{margin:0 0 .7rem;font:600 1.1rem/1.3 var(--sans);color:var(--ink-2)}
         b.setAttribute('aria-pressed', b === btn ? 'true' : 'false');
       });
       var w = render(true);
+      // Svaret står i kortet ovanför, i 105 px. Statusraden får inte säga samma
+      // sak en gång till — utom när det inte finns något svar att säga.
+      showStatus(!w);
       if (w) say('Billigast för ' + q + ' dosor: ', strong(w.name), ' — ' + kr(w.perCan) + ' kr per dosa.');
       else say('Ingen butik har ett pris för ' + q + ' dosor just nu.');
     });
@@ -879,6 +944,7 @@ h2{margin:0 0 .7rem;font:600 1.1rem/1.3 var(--sans);color:var(--ink-2)}
         applyProduct(json);
         var w = render(false);
         warn(json);
+        showStatus(true);
         if (w) say('Priserna kom fram. Billigast är ', strong(w.name), ' — ' + kr(w.perCan) + ' kr per dosa.');
         return;
       }
