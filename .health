@@ -1,20 +1,18 @@
 {
-  "last_run": "2026-08-03T08:41:59.755Z",
+  "last_run": "2026-08-03T18:57:29.740Z",
   "outcome": "stale-kept",
-  "trusted": 3,
+  "trusted": 5,
   "of": 26,
   "floor": 6,
   "alarm": true,
   "alarms": [
-    "Bara 3 av 26 butiker gav läsbar prisdata (golv: 6). Skrapningen är sannolikt trasig.",
+    "Bara 5 av 26 butiker gav läsbar prisdata (golv: 6). Skrapningen är sannolikt trasig.",
     "snuslagret.se gick inte att läsa. Det är butiken rekommendationen brukar landa på — kontrollera att produktsidans URL och HTML inte ändrats."
   ],
   "lost": [
     "Snuslagret",
     "Billigsnus",
-    "Snusvaror",
-    "SnusKungen",
-    "Snushandel"
+    "Snusstocken"
   ],
   "drifted": []
 }
