@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-04T18:50:40.319Z",
+  "fetched_at": "2026-08-05T07:48:52.431Z",
   "product": {
     "name": "Kaliber Original",
     "spec": "18 g · 20 prillor · 7,5 mg/prilla",
@@ -69,6 +69,51 @@
       "retailer": "Billigsnus",
       "domain": "billigsnus.se",
       "url": "https://billigsnus.se/produkt/snus/portionssnus/kaliber-original/",
+      "cluster": "snushallen",
+      "note": "Samma operatör som Snuslagret — reserv om nummer ett är slut.",
+      "trusted": true,
+      "ladder": [
+        {
+          "qty": 10,
+          "total": 219.9
+        },
+        {
+          "qty": 30,
+          "total": 649.9
+        },
+        {
+          "qty": 50,
+          "total": 1049.9
+        }
+      ],
+      "best": {
+        "10": {
+          "total": 219.9,
+          "perCan": 21.99,
+          "combo": "1 × 10-pack",
+          "cans": 10,
+          "exact": true
+        },
+        "20": {
+          "total": 439.8,
+          "perCan": 21.99,
+          "combo": "2 × 10-pack",
+          "cans": 20,
+          "exact": true
+        },
+        "30": {
+          "total": 649.9,
+          "perCan": 21.66,
+          "combo": "1 × 30-pack",
+          "cans": 30,
+          "exact": true
+        }
+      }
+    },
+    {
+      "retailer": "Snusstocken",
+      "domain": "snusstocken.se",
+      "url": "https://snusstocken.se/produkt/snus/portionssnus/kaliber-original/",
       "cluster": "snushallen",
       "note": "Samma operatör som Snuslagret — reserv om nummer ett är slut.",
       "trusted": true,
@@ -345,7 +390,6 @@
     }
   ],
   "unparsed": [
-    "snusstocken.se",
     "snusvaruhuset.se",
     "snussidan.se",
     "snuset.se",
@@ -366,10 +410,6 @@
     "snusdirect.com"
   ],
   "skipped": [
-    {
-      "domain": "snusstocken.se",
-      "reason": "Ingen läsbar prisstege i sidans HTML."
-    },
     {
       "domain": "snusvaruhuset.se",
       "reason": "Prisstegen renderas av JavaScript — läsbar bara i webbläsare."
@@ -442,6 +482,5 @@
       "domain": "snusdirect.com",
       "reason": "Ingen läsbar prisstege i sidans HTML."
     }
-  ],
-  "stale_warning": "Priset hos Snusstocken gick inte att läsa den här gången, så den butiken saknas i jämförelsen."
+  ]
 }
