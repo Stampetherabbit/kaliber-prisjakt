@@ -1,17 +1,11 @@
 {
-  "last_run": "2026-08-08T05:55:36.762Z",
-  "outcome": "stale-kept",
-  "trusted": 5,
+  "last_run": "2026-08-08T17:44:51.585Z",
+  "outcome": "heartbeat",
+  "trusted": 8,
   "of": 26,
   "floor": 6,
-  "alarm": true,
-  "alarms": [
-    "Bara 5 av 26 butiker gav läsbar prisdata (golv: 6). Skrapningen är sannolikt trasig."
-  ],
-  "lost": [
-    "Snusvaror",
-    "SnusKungen",
-    "Snushandel"
-  ],
+  "alarm": false,
+  "alarms": [],
+  "lost": [],
   "drifted": []
 }
