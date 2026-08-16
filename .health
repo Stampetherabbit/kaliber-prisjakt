@@ -1,13 +1,11 @@
 {
-  "last_run": "2026-08-16T05:41:27.464Z",
-  "outcome": "partial",
-  "trusted": 7,
+  "last_run": "2026-08-16T17:32:40.789Z",
+  "outcome": "fresh",
+  "trusted": 8,
   "of": 26,
-  "floor": 6,
+  "floor": 5,
   "alarm": false,
   "alarms": [],
-  "lost": [
-    "iSnus"
-  ],
+  "lost": [],
   "drifted": []
 }
