@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-16T17:32:40.789Z",
+  "fetched_at": "2026-08-19T17:38:33.256Z",
   "product": {
     "name": "Kaliber Original",
     "spec": "18 g · 20 prillor · 7,5 mg/prilla",
@@ -26,39 +26,39 @@
         },
         {
           "qty": 5,
-          "total": 119.9
+          "total": 139.9
         },
         {
           "qty": 10,
-          "total": 219.9
+          "total": 269.9
         },
         {
           "qty": 30,
-          "total": 649.9
+          "total": 779.9
         },
         {
           "qty": 50,
-          "total": 1049.9
+          "total": 1249.9
         }
       ],
       "best": {
         "10": {
-          "total": 219.9,
-          "perCan": 21.99,
+          "total": 269.9,
+          "perCan": 26.99,
           "combo": "1 × 10-pack",
           "cans": 10,
           "exact": true
         },
         "20": {
-          "total": 439.8,
-          "perCan": 21.99,
+          "total": 539.8,
+          "perCan": 26.99,
           "combo": "2 × 10-pack",
           "cans": 20,
           "exact": true
         },
         "30": {
-          "total": 649.9,
-          "perCan": 21.66,
+          "total": 779.9,
+          "perCan": 26,
           "combo": "1 × 30-pack",
           "cans": 30,
           "exact": true
@@ -120,35 +120,35 @@
       "ladder": [
         {
           "qty": 10,
-          "total": 219.9
+          "total": 269.9
         },
         {
           "qty": 30,
-          "total": 649.9
+          "total": 779.9
         },
         {
           "qty": 50,
-          "total": 1049.9
+          "total": 1249.9
         }
       ],
       "best": {
         "10": {
-          "total": 219.9,
-          "perCan": 21.99,
+          "total": 269.9,
+          "perCan": 26.99,
           "combo": "1 × 10-pack",
           "cans": 10,
           "exact": true
         },
         "20": {
-          "total": 439.8,
-          "perCan": 21.99,
+          "total": 539.8,
+          "perCan": 26.99,
           "combo": "2 × 10-pack",
           "cans": 20,
           "exact": true
         },
         "30": {
-          "total": 649.9,
-          "perCan": 21.66,
+          "total": 779.9,
+          "perCan": 26,
           "combo": "1 × 30-pack",
           "cans": 30,
           "exact": true
