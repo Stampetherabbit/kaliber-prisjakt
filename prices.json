@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-23T05:43:14.949Z",
+  "fetched_at": "2026-08-24T05:51:49.233Z",
   "product": {
     "name": "Kaliber Original",
     "spec": "18 g · 20 prillor · 7,5 mg/prilla",
@@ -428,7 +428,7 @@
     },
     {
       "domain": "swedishmatch.se",
-      "reason": "Bara löspris utan paketkontext (JSON-LD: 269 kr) — går inte att räkna volympris på."
+      "reason": "Sidan nämner inte Kaliber — kan vara fel vara eller flyttad URL."
     },
     {
       "domain": "snusbolaget.se",
