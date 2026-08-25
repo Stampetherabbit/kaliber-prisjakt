@@ -440,6 +440,5 @@
       "domain": "snusdirect.com",
       "reason": "Ingen läsbar prisstege i sidans HTML."
     }
-  ],
-  "stale_warning": "Priset hos Tobax gick inte att läsa den här gången, så den butiken saknas i jämförelsen."
+  ]
 }
