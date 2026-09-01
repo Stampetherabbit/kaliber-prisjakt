@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-29T19:43:25.011Z",
+  "fetched_at": "2026-09-01T19:56:02.299Z",
   "product": {
     "name": "Kaliber Original",
     "spec": "18 g · 20 prillor · 7,5 mg/prilla",
@@ -440,6 +440,5 @@
       "domain": "snusdirect.com",
       "reason": "Ingen läsbar prisstege i sidans HTML."
     }
-  ],
-  "stale_warning": "Priserna kunde inte uppdateras 2026-09-01 (bara 2 av 26 butiker svarade med läsbar prisdata). Visar sparade priser från 2026-08-29."
+  ]
 }
