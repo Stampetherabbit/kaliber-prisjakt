@@ -1,11 +1,13 @@
 {
-  "last_run": "2026-09-04T09:36:50.897Z",
-  "outcome": "unchanged",
-  "trusted": 8,
+  "last_run": "2026-09-04T19:33:37.161Z",
+  "outcome": "partial",
+  "trusted": 7,
   "of": 26,
   "floor": 6,
   "alarm": false,
   "alarms": [],
-  "lost": [],
+  "lost": [
+    "Tobax"
+  ],
   "drifted": []
 }
