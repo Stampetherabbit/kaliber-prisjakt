@@ -1,13 +1,13 @@
 {
-  "last_run": "2026-09-04T19:33:37.161Z",
+  "last_run": "2026-09-05T09:02:58.613Z",
   "outcome": "partial",
-  "trusted": 7,
+  "trusted": 6,
   "of": 26,
-  "floor": 6,
+  "floor": 5,
   "alarm": false,
   "alarms": [],
   "lost": [
-    "Tobax"
+    "iSnus"
   ],
   "drifted": []
 }
