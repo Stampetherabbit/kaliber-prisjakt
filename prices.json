@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-09-05T09:02:58.613Z",
+  "fetched_at": "2026-09-05T19:01:17.106Z",
   "product": {
     "name": "Kaliber Original",
     "spec": "18 g · 20 prillor · 7,5 mg/prilla",
@@ -203,6 +203,54 @@
       }
     },
     {
+      "retailer": "iSnus",
+      "domain": "isnus.se",
+      "url": "https://isnus.se/produkt/kaliber-original-portionssnus/",
+      "note": "30-pack är dyrare än 3 × 10-pack — DP-beräkningen fångar det.",
+      "trusted": true,
+      "ladder": [
+        {
+          "qty": 1,
+          "total": 32
+        },
+        {
+          "qty": 10,
+          "total": 259
+        },
+        {
+          "qty": 30,
+          "total": 779
+        },
+        {
+          "qty": 50,
+          "total": 1249
+        }
+      ],
+      "best": {
+        "10": {
+          "total": 259,
+          "perCan": 25.9,
+          "combo": "1 × 10-pack",
+          "cans": 10,
+          "exact": true
+        },
+        "20": {
+          "total": 518,
+          "perCan": 25.9,
+          "combo": "2 × 10-pack",
+          "cans": 20,
+          "exact": true
+        },
+        "30": {
+          "total": 777,
+          "perCan": 25.9,
+          "combo": "3 × 10-pack",
+          "cans": 30,
+          "exact": true
+        }
+      }
+    },
+    {
       "retailer": "SnusKungen",
       "domain": "snuskungen.se",
       "url": "https://snuskungen.se/produkt/kaliber-original-portion/",
@@ -298,7 +346,6 @@
     "snusvaruhuset.se",
     "snussidan.se",
     "snuset.se",
-    "isnus.se",
     "gonic.se",
     "swedishmatch.se",
     "snusbolaget.se",
@@ -328,10 +375,6 @@
     {
       "domain": "snuset.se",
       "reason": "Bara löspris utan paketkontext (JSON-LD: 29.9 kr) — går inte att räkna volympris på."
-    },
-    {
-      "domain": "isnus.se",
-      "reason": "HTTP 508 — URL:en har troligen flyttat."
     },
     {
       "domain": "gonic.se",
@@ -397,6 +440,5 @@
       "domain": "snusdirect.com",
       "reason": "Ingen läsbar prisstege i sidans HTML."
     }
-  ],
-  "stale_warning": "Priset hos iSnus gick inte att läsa den här gången, så den butiken saknas i jämförelsen."
+  ]
 }
