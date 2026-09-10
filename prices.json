@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-09-09T09:42:40.992Z",
+  "fetched_at": "2026-09-10T09:41:13.394Z",
   "product": {
     "name": "Kaliber Original",
     "spec": "18 g · 20 prillor · 7,5 mg/prilla",
@@ -156,54 +156,6 @@
       }
     },
     {
-      "retailer": "iSnus",
-      "domain": "isnus.se",
-      "url": "https://isnus.se/produkt/kaliber-original-portionssnus/",
-      "note": "30-pack är dyrare än 3 × 10-pack — DP-beräkningen fångar det.",
-      "trusted": true,
-      "ladder": [
-        {
-          "qty": 1,
-          "total": 32
-        },
-        {
-          "qty": 10,
-          "total": 259
-        },
-        {
-          "qty": 30,
-          "total": 779
-        },
-        {
-          "qty": 50,
-          "total": 1249
-        }
-      ],
-      "best": {
-        "10": {
-          "total": 259,
-          "perCan": 25.9,
-          "combo": "1 × 10-pack",
-          "cans": 10,
-          "exact": true
-        },
-        "20": {
-          "total": 518,
-          "perCan": 25.9,
-          "combo": "2 × 10-pack",
-          "cans": 20,
-          "exact": true
-        },
-        "30": {
-          "total": 777,
-          "perCan": 25.9,
-          "combo": "3 × 10-pack",
-          "cans": 30,
-          "exact": true
-        }
-      }
-    },
-    {
       "retailer": "SnusKungen",
       "domain": "snuskungen.se",
       "url": "https://snuskungen.se/produkt/kaliber-original-portion/",
@@ -300,6 +252,7 @@
     "snussidan.se",
     "snuset.se",
     "snusvaror.se",
+    "isnus.se",
     "gonic.se",
     "swedishmatch.se",
     "snusbolaget.se",
@@ -333,6 +286,10 @@
     {
       "domain": "snusvaror.se",
       "reason": "HTTP 503 — URL:en har troligen flyttat."
+    },
+    {
+      "domain": "isnus.se",
+      "reason": "HTTP 508 — URL:en har troligen flyttat."
     },
     {
       "domain": "gonic.se",
@@ -399,5 +356,5 @@
       "reason": "Ingen läsbar prisstege i sidans HTML."
     }
   ],
-  "stale_warning": "Priserna kunde inte uppdateras 2026-09-09 (bara 2 av 26 butiker svarade med läsbar prisdata). Visar sparade priser från 2026-09-09."
+  "stale_warning": "Priset hos iSnus gick inte att läsa den här gången, så den butiken saknas i jämförelsen."
 }
