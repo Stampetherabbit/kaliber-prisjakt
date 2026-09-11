@@ -1,9 +1,9 @@
 {
-  "last_run": "2026-09-10T19:40:13.427Z",
-  "outcome": "fresh",
+  "last_run": "2026-09-11T09:38:37.015Z",
+  "outcome": "unchanged",
   "trusted": 6,
   "of": 26,
-  "floor": 4,
+  "floor": 5,
   "alarm": false,
   "alarms": [],
   "lost": [],
