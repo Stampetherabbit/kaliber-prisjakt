@@ -1,7 +1,7 @@
 {
-  "last_run": "2026-09-25T10:10:31.526Z",
-  "outcome": "unchanged",
-  "trusted": 5,
+  "last_run": "2026-09-25T20:28:28.876Z",
+  "outcome": "fresh",
+  "trusted": 6,
   "of": 26,
   "floor": 4,
   "alarm": false,
