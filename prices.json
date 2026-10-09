@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-05T23:09:25.141Z",
+  "fetched_at": "2026-10-09T11:52:40.687Z",
   "product": {
     "name": "Kaliber Original",
     "spec": "18 g · 20 prillor · 7,5 mg/prilla",
@@ -289,7 +289,7 @@
     },
     {
       "domain": "isnus.se",
-      "reason": "Sidan nämner inte Kaliber — kan vara fel vara eller flyttad URL."
+      "reason": "HTTP 508 — URL:en har troligen flyttat."
     },
     {
       "domain": "gonic.se",
