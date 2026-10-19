@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-18T19:24:48.951Z",
+  "fetched_at": "2026-10-19T10:43:27.532Z",
   "product": {
     "name": "Kaliber Original",
     "spec": "18 g · 20 prillor · 7,5 mg/prilla",
@@ -289,7 +289,7 @@
     },
     {
       "domain": "isnus.se",
-      "reason": "Ingen respons från butiken."
+      "reason": "HTTP 508 — URL:en har troligen flyttat."
     },
     {
       "domain": "gonic.se",
@@ -309,7 +309,7 @@
     },
     {
       "domain": "mathem.se",
-      "reason": "HTTP 403 — URL:en har troligen flyttat."
+      "reason": "Bara löspris utan paketkontext (JSON-LD: 259 kr) — går inte att räkna volympris på."
     },
     {
       "domain": "willys.se",
