@@ -355,5 +355,6 @@
       "domain": "snusdirect.com",
       "reason": "Ingen läsbar prisstege i sidans HTML."
     }
-  ]
+  ],
+  "stale_warning": "Priserna kunde inte uppdateras 2026-10-20 (bara 2 av 26 butiker svarade med läsbar prisdata). Visar sparade priser från 2026-10-20."
 }
