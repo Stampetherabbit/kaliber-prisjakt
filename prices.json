@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-23T10:01:05.561Z",
+  "fetched_at": "2026-10-25T19:34:47.087Z",
   "product": {
     "name": "Kaliber Original",
     "spec": "18 g · 20 prillor · 7,5 mg/prilla",
@@ -321,7 +321,7 @@
     },
     {
       "domain": "netsnus.se",
-      "reason": "Bara löspris utan paketkontext (JSON-LD: 279 kr) — går inte att räkna volympris på."
+      "reason": "HTTP 503 — URL:en har troligen flyttat."
     },
     {
       "domain": "tobax.se",
