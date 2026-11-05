@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-04T12:57:51.172Z",
+  "fetched_at": "2026-11-05T22:39:51.354Z",
   "product": {
     "name": "Kaliber Original",
     "spec": "18 g · 20 prillor · 7,5 mg/prilla",
@@ -281,7 +281,7 @@
     },
     {
       "domain": "snuset.se",
-      "reason": "Bara löspris utan paketkontext (JSON-LD: 31 kr) — går inte att räkna volympris på."
+      "reason": "Bara löspris utan paketkontext (JSON-LD: 36 kr) — går inte att räkna volympris på."
     },
     {
       "domain": "snusvaror.se",
