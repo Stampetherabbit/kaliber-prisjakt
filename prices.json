@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-13T22:34:50.476Z",
+  "fetched_at": "2026-11-14T12:08:37.553Z",
   "product": {
     "name": "Kaliber Original",
     "spec": "18 g · 20 prillor · 7,5 mg/prilla",
@@ -301,7 +301,7 @@
     },
     {
       "domain": "snusbolaget.se",
-      "reason": "Ingen läsbar prisstege i sidans HTML."
+      "reason": "HTTP 403 — URL:en har troligen flyttat."
     },
     {
       "domain": "nettotobak.com",
@@ -313,7 +313,7 @@
     },
     {
       "domain": "willys.se",
-      "reason": "Sidans titel handlar inte om Kaliber (\"Willys\") — URL:en har troligen flyttat."
+      "reason": "HTTP 403 — URL:en har troligen flyttat."
     },
     {
       "domain": "citygross.se",
@@ -341,7 +341,7 @@
     },
     {
       "domain": "hemkop.se",
-      "reason": "Sidans titel handlar inte om Kaliber (\"Vi skapar matglädje varje dag | Hemköp\") — URL:en har troligen flyttat."
+      "reason": "HTTP 403 — URL:en har troligen flyttat."
     },
     {
       "domain": "snusfabriken.com",
@@ -353,7 +353,7 @@
     },
     {
       "domain": "snusdirect.com",
-      "reason": "HTTP 403 — URL:en har troligen flyttat."
+      "reason": "Ingen läsbar prisstege i sidans HTML."
     }
   ]
 }
